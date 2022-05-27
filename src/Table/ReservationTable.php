@@ -15,8 +15,8 @@ class ReservationTable extends Table {
 
 
    
-    public function createReservation(Reservation $r):void {
-        $this->create([
+    public function createReservation(Reservation $r):int{
+        return $this->create([
             'id_chambre' => $r->getIdChambre(),
             'id_client' => $r->getIdClient(),
             'date_arrivee' => $r->getDateArrivee(),
@@ -80,7 +80,7 @@ class ReservationTable extends Table {
 
     public function addAddons($idRes,$idAddon) {
         $query = $this->pdo->prepare(
-            "INSERT INTO addons_reservation 
+            "INSERT INTO addon_reservation 
                     SET id_addon = :idAddon, id_reservation = :idRes"
             );
         

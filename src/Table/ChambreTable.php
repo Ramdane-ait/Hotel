@@ -27,4 +27,10 @@ final class ChambreTable extends Table{
             'type_id' => $chambre->getTypeId(),
         ],$chambre->getId());
     }
+
+    public function findRoom($idType){
+        $query = $this->pdo->prepare("SELECT id FROM $this->table WHERE type_id = ? LIMIT 1");
+        $query->execute([$idType]);
+        return $query->fetch()[0];
+    }
 }

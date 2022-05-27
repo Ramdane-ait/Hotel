@@ -22,12 +22,10 @@
 
             <p>Jusqu'au: <span>{{r.getDateDepart}}</span></p>
 
-            <p>Mode de paiement: <span>{{r.getTypePaiement}}</span></p>
-
             <p class="centrer">Total: <span>{{prix}} DA</span></p>
         </div>
         <div align="center"> 
-            <a href="{{router.url('recap')}}?confirm=1" class="boutton_recap" > Confirmer </a>
+            <a href="{{router.url('recap')}}?confirm=1&addons={{addons}}" class="boutton_recap" > Confirmer </a>
         </div> 
         </div>  
   </div>

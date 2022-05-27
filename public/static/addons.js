@@ -11,6 +11,9 @@ function addons(addon){
 }
 
 function confirmer(src) {
-        src += '?addons=' + cards.join(',');
+    
+        if (cards != []){
+            src += '?addons=' + cards.join(','); 
+        }
         window.location.href = src;
 }
