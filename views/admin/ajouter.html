@@ -1,0 +1,89 @@
+{% extends "layoutAdmin.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block links %}../static/ajouter.css{% endblock  %}
+
+{% block content %}
+<div class="container">
+<h class="titre">Ajouter une chambre</h>
+       
+      <form enctype="multipart/form-data" method="POST" action="{{action}}">
+        
+        <div class="part1">
+
+        <label for="chambre">Chambre:</label>
+        <input type="text" name="nom" id="chambre" value="{{chambre.getNom}}"/>
+        {% if errors.nom %}
+          {% for error in errors.nom %}
+            <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+          {% endfor %} 
+        {% endif %}
+
+        <label for="type_id">choisir un type:</label>
+
+        <select name="type_id" id="type">
+            <option value="">--Veuillez choisir un type--</option>
+            {% for type in types %}
+            <option value="{{type.getId}}" {% if type.getId == chambre.getTypeId %}{{selected}}{% endif %}>
+              {{type.getNomType}}
+            </option>
+            {% endfor %}
+        </select>
+        {% if errors.type %}
+        {% for error in errors.type %}
+          <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+        {% endfor %} 
+      {% endif %}
+
+       <label for="prix">Prix:</label>
+       <input type="number" name="prix" id="prix" min="0" value="{{chambre.getPrix}}"/>
+       {% if errors.prix %}
+       {% for error in errors.prix %}
+         <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+       {% endfor %} 
+     {% endif %}
+
+       <label for="images">Images:</label>
+       <input type="file" name="image[]" id="images"  accept=".jpg, .jpeg, .png" multiple/>
+       <input type="file" name="image[]" id="images"  accept=".jpg, .jpeg, .png" multiple/>
+       
+       {% if errors.images %}
+          
+            <div class="error" style="color:red; font-size:.6em;">{{errors.images}}</div>
+         
+        {% endif %}
+
+       <p class="disc">
+         <label for="description">
+          description:
+         </label>
+      
+         <textarea name="description" id="description" rows="8" cols="25">{{chambre.getDescription}}</textarea>
+
+         {% if errors.description %}
+         {% for error in errors.description %}
+           <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+         {% endfor %} 
+       {% endif %}     
+       </p>
+
+         <div class="confirm">
+          <input type="submit" value="Confirmer" />
+        </div>
+
+      </form>
+</div>
+{% endblock  %}
+{% block footer %}{% endblock %}
+{% block js %}{% endblock  %}
+
+
+
+
+
+
+
+
+
+
+

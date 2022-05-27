@@ -1,0 +1,102 @@
+
+{% extends "layout.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block footer %}../static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block links %}../static/inscription.css{% endblock  %}
+
+{% block content %}
+<div class="container">
+<form class="form" method="post" action="{{action}}">
+  <h1 class="inscription"> Inscription</h1>
+  <div class="style1">
+   <label for="nom"> Nom:</label>
+   <input class="block" type="text" name="nom" id="nom"/>
+   {% if errors.nom %}
+    {% for error in errors.nom %}
+      <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+    {% endfor %} 
+      {% endif %}
+   <label for="prénom"> Prénom:</label>
+   <input class="block" type="text" name="prenom" id="prénom"/>
+   {% if errors.prenom %}
+    {% for error in errors.prenom %}
+      <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+    {% endfor %} 
+  {% endif %}
+  </div>
+  <div class="style">
+   <label for="date de naissance">Date de naissance:</label> 
+   <input class="block" type="date" name="date_naiss" id="date de naissance"/>
+   {% if errors.date %}
+   {% for error in errors.date %}
+     <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+   {% endfor %} 
+ {% endif %}
+   <label for="sexe">Sexe:</label>  
+   <select class="genre" name="sexe">
+       <option value="homme">Homme</option>
+       <option value="femme">Femme</option>
+   </select>
+   {% if errors.sexe %}
+    {% for error in errors.sexe %}
+      <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+    {% endfor %} 
+  {% endif %}
+  </div>
+  <div class="style">
+      <label for="email">Email:</label>
+      <input class="block" type="text" name="email" id="email"/>
+      {% if errors.email %}
+      {% for error in errors.email %}
+        <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+      {% endfor %} 
+    {% endif %}
+<br>
+  </div>
+  <div class="style">
+      <label for="tel">Tel:</label>
+      <input class="block" type="number" name="tel" id="tel"/>
+      {% if errors.tel %}
+    {% for error in errors.tel %}
+      <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+    {% endfor %} 
+  {% endif %}
+  </div>
+  <div class="style">
+      <label for="adresse">Adresse:</label>
+      <input class="block" type="text" name="adresse" id="adresse"/>
+      {% if errors.adresse %}
+    {% for error in errors.adresse %}
+      <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+    {% endfor %} 
+  {% endif %}
+  </div>
+  <div class="style1">
+      <label for="mot de passe">Mot de passe:</label>
+      <input class="block" type="password" name="mdp" id="mot de passe"/>
+      {% if errors.mdp %}
+    {% for error in errors.mdp %}
+      <div class="error" style="color:red; font-size:.6em;">{{error}}</div>
+    {% endfor %} 
+  {% endif %}
+      <label for="confirmation">confirmation:</label>
+      <input class="block" type="password" name="confirmation" id="confirmation"/>
+  </div>
+  <div align="center"> 
+      <button class="boutton" type="submit"> Confirmer </button>
+  </div>   
+
+
+ 
+  
+</form>    
+
+</div>
+{% endblock  %}
+
+{% block js %}{% endblock  %}
+
+
+
+    

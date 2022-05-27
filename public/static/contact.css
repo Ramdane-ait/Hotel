@@ -1,0 +1,138 @@
+
+  ul {
+    list-style-type:none;
+  }
+  
+  /* Basic style */
+  body {
+    font-size:var(--font-size);
+    font-family: 'Poppins', sans-serif;
+  }
+  .contacts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+  }
+  
+   .titre-text {
+    font-family: 'Cormorant Garamond', serif;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.contactform .inputboit{
+    
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+    
+    
+}
+
+.contactform .inputboite input,
+.contact .inputboite textarea{
+    width: 20em;
+    border: 0.1em solid #555;
+    padding: 0.5em;
+    color: #111;
+    outline: none;
+    font-size: 1em;
+    font-weight: 300;
+    resize: none;
+}
+.contactform .inputboites input,
+.contact .inputboites textarea{
+    width: 20em;
+    border: 0.1em solid #555;
+    padding: 0.5em;
+    color: #111;
+    outline: none;
+    font-size: 1em;
+    font-weight: 300;
+    resize: none;
+    height: 10em;
+}
+.inputboites{
+    margin-top: 2em;
+}
+
+
+.contactform .inputboit input[type="submit"]{
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: 700;
+    color: #000;
+    background: #ee913b;
+    display: inline-block;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    outline: none;
+    border: none;
+    transition: 0.5s;
+    max-width: 100em;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    
+}
+.titre_con{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+ .contactform p{
+    font-size: 1.2em;
+    margin-right: 3em;
+    margin-bottom: 1em;
+ }
+ .titre_c{
+    
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+ }
+ .titre_c h3{
+       margin-top: .1em;
+       margin-left: .5em;
+ }
+ .contactform{
+     display: flex;
+     flex-direction: column;
+     margin-top: 5em;
+     
+ }
+ @media (min-width:930px){
+
+      /*contact*/
+    
+      .contactform .inputboites input,
+      .contact .inputboites textarea{
+          width: 100%;
+          
+          margin-top: 0.5em;
+          display: flex;
+          align-items: center;
+          color: #111;
+      }
+      .contactform .inputboite input,
+      .contact .inputboite textarea{
+ 
+          color: #111;
+          width: 40%;
+      }
+      
+      .contactform .inputboit input[type="submit"]{
+          width: 100%;
+          padding: 0.8em 26em;
+          display: flex;
+          align-items: center;
+ 
+      }
+ }
+

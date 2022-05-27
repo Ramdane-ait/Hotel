@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+{% block navbar %}static/{% endblock  %}
+{% block navbarJs %}static/{% endblock  %}
+{% block footer %}static/{% endblock  %}
+{% block links %}static/accueil.css{% endblock  %}
+
+{% block content %}
+
+<div class="slider">
+    <div class="galerie">
+      <div class="slides" style="display: block;">
+        <div class="titre">
+        <h2>Votre satisfaction est notre garantie</h2>
+        <p>Dans notre hotel vous passerez le meilleur séjour de votre vie.</p>
+          <img width= "100%" height="350px" src="static/img/image11.jpg" class="slider-img">
+        </div>
+      </div>
+      <div class="slides">
+        <div class="titre">
+            <h2>Votre confort est notre passion</h2>
+            <p> passez un séjour de réve en famille</p>
+              <img width= "100%" height="350px" src="static/img/image1.jpg" class="slider-img">
+            </div>
+      </div>
+       <div class="slides">
+        <div class="titre">
+            <h2>l'endroit parfait pour des vacances parfaite</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta cum sed non soluta ea. Deleniti et dolore nihil unde doloribus vel repellat rem veritatis perferendis. Natus earum nulla blanditiis excepturi.</p>
+              <img width= "100%" height="350px" src="static/img/image3.jpg" class="slider-img" >
+            </div>
+        </div>
+  <!-- Boutons suivant et précédent -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(+1)" id="next">&#10095;</a>
+  
+  <!-- Cercles -->
+  <div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+  </div>
+</div>
+
+<form action="{{router.url('reservation')}}" method="post" class="sbar" id="reservation">
+  
+  <h2 class="titr-text">Réserver Votre Chambre</h2>
+  <div class="date">
+  <h5 >Du :    <input type="date" name ="dateA" placeholder="Date d'arrivée.."></h5>
+  <h5 >Au :    <input type="date" name = "dateD" placeholder="Date de départ.."></h5>
+</div>
+  <button type="submit">Réserver</button>
+</form>
+{% if error %}
+<p style="color:red;font-size:1.5em;text-align:center;">Dates non valide</p> 
+{% endif %}
+{% if confirm %}
+                <p style="color:rgb(5, 141, 5);font-size:1.5em;text-align:center;">Réservation effectuée avec succés</p>
+{% endif %}
+{% if inscri %}
+                <p style="color:rgb(5, 141, 5);font-size:1.5em;text-align:center;">Inscription confirmée</p>
+{% endif %}
+
+
+<div class="presentation_all">
+<div class="presentation">
+<h2>Myfras HOTEL</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore exercitationem corporis incidunt impedit, asperiores soluta eum odio porro, molestiae voluptatibus quibusdam recusandae eveniet unde illum quod! Ex consequuntur itaque accusantium <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maxime, odit non rem beatae minus nihil, sit sunt placeat nisi minima libero. Incidunt reiciendis unde dolor commodi quae laboriosam omnis!.</p>
+</div>
+   <!-- Slider -->
+   <div class="slider1">
+    <div class="galerie1">
+      <div class="slides1">
+        <div class="all">
+        <div class="discription">
+            <h3>Piscine</h3>
+           
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ducimus cum obcaecati ut velit unde iusto aspernatur.</p>
+          
+          
+        </div>
+        <div class="img">
+          <img src="static/img/image5.jpg" >
+        </div>
+        
+      </div>
+    </div>
+    <div class="slides1">
+        <div class="all">
+        <div class="discription">
+            <h3>Restaurant</h3>
+           
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam voluptatibus quaerat eius facere provident dignissimos aut quae animi cum ullam</p>
+           
+        </div>
+        <div class="img">
+          <img  src="static/img/image6.jpg" >
+        </div>
+       
+      </div>
+    </div>
+    <div class="slides1">
+        <div class="all">
+        <div class="discription">
+            <h3>Salle de sport</h3>
+            
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ducimus cum obcaecati ut velit unde iusto aspernatur.</p>
+           
+       
+        </div>
+        <div class="img">
+          <img  src="static/img/image7.jpg" >
+        </div>
+       
+      </div>
+    </div>
+  <!-- Boutons suivant et précédent -->
+  <a class="prev1" onclick="plusSlides1(-1)">&#10094;</a>
+  <a class="next1" id="next1" onclick="plusSlides1(+1)">&#10095;</a>
+  
+  <!-- Cercles -->
+  <div style="text-align:center">
+  <span class="dot1" onclick="currentSlide1(1)"></span>
+  <span class="dot1" onclick="currentSlide1(2)"></span>
+  <span class="dot1" onclick="currentSlide1(3)"></span>
+  </div>
+  </div>
+</div>
+<div class="btne">
+  <a href="{{router.url('chambres')}}" >Consulter Chambres</a>
+</div>
+</div>
+
+
+{% endblock  %}
+
+{% block js %}
+<script src="static/accueil.js"></script>
+<script src="static/slider2.js"></script>
+{% endblock  %}

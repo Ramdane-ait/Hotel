@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% block navbar %}{% endblock %}navadmi.css">
+    <link rel="stylesheet" href="{% block links %}{% endblock  %}">
+    
+    <title>Myfras Hotel Admin</title>
+</head>
+<body>
+    <nav class="navbar dark-mode" role="navigation">
+        <button class="burger">
+            <span class="bar"></span>  
+          </button>
+        <div class="navbar__logo"><span>M</span>yfras Hotel</div>  
+        <div class="yanis">
+            <ul class="yanbar">
+                <li><a href="{{router.url('admin')}}">Administration</a></li>
+                <li><a href="{{router.url('accueil')}}">Accueil </a></li>
+                <li><a href="{{router.url('chambres')}}">Chambres</a></li>
+                <li><a href="{{router.url('deconnexion')}}"><button>Deconnexion</button> </a></li>
+            </ul>
+    
+        </div>  
+        <ul class="navbar__links">
+          
+          <li class="navbar__link" ><a href="{{router.url('admin')}}">Administration</a></li>
+          
+          <li class="navbar__link first"><a href="{{router.url('accueil')}}">Accueil</a></li>
+          <li class="navbar__link second"><a href="{{router.url('chambres')}}">Chambres</a></li>
+          </li>
+        </ul>  
+        <div class="btn"> 
+            <a href="{{router.url('deconnexion')}}" class="btn1">Deconnexion</a>
+        </div>   
+      </nav>
+    {% block content %}{% endblock %}
+    {% block footer %}{% endblock %}
+    {% block js %}{% endblock  %}
+    <script src="{% block navbarJs %}{% endblock %}navadmi.js"></script>
+</body>
+</html>

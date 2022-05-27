@@ -1,0 +1,57 @@
+{% extends "layoutAdmin.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block links %}../static/admin.css{% endblock  %}
+
+{% block content %}
+
+
+<div class="titre1">Administration</div>
+<div class="container">
+    <div class="titre2">Chambres:</div>
+    <button class="ajouter"><a href="{{router.url('nouvelle_chambre')}}">Ajouter</a></button>
+    <table class="tab">
+
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>NOM</th>
+                <th>Type</th>
+                <th>Prix</th>
+                <th>images</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for chambre in chambres %}
+            <tr>
+                <td>{{chambre.getId}}</td>
+                <td>{{chambre.getNom}}</td>
+                <td>{{typeChambre[chambre.getId]}}</td>
+                <td>{{chambre.getPrix}}</td>
+                <td>  
+                    {% for image in images[chambre.getId] %}
+                        <img src="{{image.getPath}}" >
+                    {% endfor %} 
+                </td>
+                <td> <form action="{{router.url('supprimer_chambre',{'id':chambre.getId})}}" 
+                    onsubmit="return confirm('Voulez vous vraiment effectuer cette action ?')" style="display:inline;">
+                    <input type="image" class="btn-supp" src="static/img/sup.png" >
+                        
+                    
+                </form>
+                        <a href="{{router.url('modifier_chambre',{'id':chambre.getId})}}"><img  src="static/img/mod.png"></a>
+                </td>    
+            </tr> 
+            {% endfor %}
+        <tbody>    
+    </table>
+</div>
+
+
+{% endblock  %}
+{% block footer %}{% endblock %}
+{% block js %}{% endblock  %}

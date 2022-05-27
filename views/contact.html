@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block footer %}../static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block links %}../static/contact.css{% endblock  %}
+
+{% block content %}
+<div class="contacts">
+  <form method="post" action="{{router.url('contact')}}" class="contact" id="contact">
+        <div class="titre noir ">
+            <h2 class="titre-text">Nous contacter:</h2>
+        </div>
+        {% if succes %}
+            <p style="color:green;font-size:1.3em;text-align:center;">Message envoyé avec succes</p>
+        {% endif %}
+        <div class="contactform">
+            <div class="inputboite">
+                <h5 class="titr-text">Email:</h5>
+                  <input type="email" name="email" placeholder="" value="{{email}}">
+            </div>
+            <div class="inputboites">
+                <h5 class="titr-text">Message:</h5>
+                <textarea  name="message"placeholder=""></textarea>
+            </div>
+            <div class="inputboit">
+                <input type="submit" value="envoyer">
+            </div>
+            <p>Disponible entre 8h et 17h</p>
+
+            <div class="titre_con">
+            <h2>Tel:</h2>
+            <div class="titre_c">
+               <h3>+213 31 33 47 85</h3>
+                <h3>+213 31 87 96 54</h3> 
+            </div>
+            
+        </div>
+        </div>
+    </form>
+    
+</div>
+
+{% endblock  %}
+
+{% block js %}{% endblock  %}
+
+
+
+  

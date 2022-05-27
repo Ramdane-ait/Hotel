@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block navbar %}static/{% endblock  %}
+{% block footer %}static/{% endblock %}
+{% block navbarJs %}static/{% endblock  %}
+{% block links %}static/recapitulatif.css{% endblock  %}
+
+{% block content %}
+    <div class="container">
+        <div>
+            
+        <h1 class="recap"> Récapitulatif de la réservation:</h1>
+        <div class="recap_reservation">
+            <p>Nom: <span>{{client.getNom}}</span></p>
+            
+            <p>Prénom: <span>{{client.getPrenom}}</span></p>
+
+            <p>Email: <span>{{client.getEmail}}</span></p>
+
+            <p>Chambre N°: <span>{{r.getIdChambre}}</span></p>
+
+            <p>Réservée pour le:<span>{{r.getDateArrivee}}</span> </p>
+
+            <p>Jusqu'au: <span>{{r.getDateDepart}}</span></p>
+
+            <p>Mode de paiement: <span>{{r.getTypePaiement}}</span></p>
+
+            <p class="centrer">Total: <span>{{prix}} DA</span></p>
+        </div>
+        <div align="center"> 
+            <a href="{{router.url('recap')}}?confirm=1" class="boutton_recap" > Confirmer </a>
+        </div> 
+        </div>  
+  </div>
+
+{% endblock  %}
+
+{% block js %}{% endblock  %}
+
+
+    
+    
+
+  
+
+
+
+

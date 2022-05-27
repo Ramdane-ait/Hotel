@@ -1,0 +1,152 @@
+
+
+.container{
+    
+    margin-bottom: 3em;
+}
+.inscription{
+    text-align: center;
+   margin-bottom: 2em;
+    font-weight:2em;
+    font-size: 2em;
+    line-height: 2em;
+}
+
+.style{
+    margin-left: 4.5em;
+    font-size: 1.2em;
+    line-height: 2em;
+}
+.style1{
+    margin-left: 4.5em;
+    font-size: 1.2em;
+    line-height: 2em;
+}
+
+.block{
+    display: block;
+    padding: 0.2em;
+    outline: none;
+}
+.genre{
+    display: block;
+    padding: 0.4em;
+}
+.boutton{
+    margin-top: 2.5em;
+    background: rgba(238, 145, 59, 0.9);
+    border-radius:0.9em;
+    font-family: 'Cormorant Garamond';
+    font-weight: 700;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    
+}
+@media (min-width: 1015px){
+    
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .form{
+        margin: 10%;
+        border-radius: 1.5em;
+        background:white ;
+        height: 35em;
+        width: 100%;
+    }
+    .inscription{
+        text-align: center;
+        font-size: 2.5em;
+    }
+    .style1{
+        display: flex;
+        flex-direction: row;
+    }
+    .style{
+      
+      font-size: 1.5em;
+      margin-top: 0.3em;
+      margin-left: 2.5em;
+    }
+    .block{
+        display: inline;
+        padding: 0.3em;
+        margin-left: 1.5em;
+        margin-right: 4em;
+        outline:none;
+    }
+    .genre{
+        display: inline;
+        padding: 0.3em;
+    }
+    .boutton{
+        margin-top: 1.2em;
+        background: rgba(238, 145, 59, 0.9);
+        border-radius:0.8em;
+        font-family: 'Cormorant Garamond';
+        font-weight: 800;
+        font-size: 1.5em;
+        line-height: 1.6em;
+        
+        
+    }
+}
+@media (min-width: 715px){
+    .style1{
+        display: flex;
+        flex-direction: row;
+        
+    }
+    .style1 .block{
+        width: 20%;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .form{
+        margin: 10%;
+        border-radius: 1.5em;
+        background:white ;
+        height: 35em;
+        width: 100%;
+    }
+    .inscription{
+        text-align: center;
+        font-size: 2.5em;
+    }
+    .style{
+      
+      font-size: 1.5em;
+      margin-top: 0.3em;
+      margin-left: 2.5em;
+    }
+    .block{
+        display: inline;
+        padding: 0.3em;
+        margin-left: 1.5em;
+        margin-right: 4em;
+        outline:none;
+    }
+    .genre{
+        display: inline;
+        padding: 0.3em;
+    }
+    .boutton{
+        margin-top: 1.2em;
+        background: rgba(238, 145, 59, 0.9);
+        border-radius:0.8em;
+        font-family: 'Cormorant Garamond';
+        font-weight: 800;
+        font-size: 1.5em;
+        line-height: 1.6em;
+        
+        
+    }
+}
+
+
+    

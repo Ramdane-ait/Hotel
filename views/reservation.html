@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+{% block navbar %}static/{% endblock  %}
+{% block footer %}static/{% endblock %}
+{% block navbarJs %}static/{% endblock  %}
+{% block links %}static/reservation.css{% endblock  %}
+
+{% block content %}
+    <section class="chambre"id="chambre">
+        <div class="titre noir">
+            <h2 class="titr-texte">Veuillez selectionner une chambre:</h2>
+        </div>
+        <div class="chambrecartes">
+        {% for chambre in chambres %}
+    
+            
+                    <div class="chambrecarte">
+                            <div class="imagec">
+                                <img src="{{images[chambre.getId].getPath}}" alt=""> 
+                            </div>
+                                    <div class="texte">
+                                        <p>{{chambre.getNom}}</p>
+                                            <h2>Prix: {{chambre.getPrix}} DA</h2>
+                                    </div>
+                                        <div class="btnconsulter">
+                                            <a href="{{router.url('chambres')}}" >Consulter</a>
+                                        </div>
+                                        <form  action="{{router.url('paiement')}}" method="post" class="btnchoisir">
+                                            <input type="text" style="display: none;" name="id_chambre" value="{{chambre.getId}}">
+                                            <input type="text" style="display: none;" name="prix" value="{{chambre.getPrix}}">
+                                            <button type="submit" >Choisir</button>
+                                        </form>
+                    </div>              
+            {% else %}
+                    <h2>aucune chambre disponible durant les dates choisie</h2>
+        {% endfor %}
+        </div>
+    </section>
+
+{% endblock  %}
+
+{% block js %}{% endblock  %}
+
+
+    

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% block navbar %}{% endblock %}navbar.css">
+    <link rel="stylesheet" href="{% block footer %}{% endblock %}footer.css">
+    <link rel="stylesheet" href="{% block links %}{% endblock  %}">
+    
+    <title>Myfras Hotel</title>
+</head>
+<body>
+    <nav class="navbar dark-mode" role="navigation">
+        <button class="burger">
+            <span class="bar"></span>  
+          </button>
+        <div class="navbar__logo"><span>M</span>yfras Hotel</div>    
+            <ul class="yanbar">
+              {% if admin %}
+              <li><a href="{{router.url('admin')}}">Administration</a></li>
+              {% endif %}
+                <li><a href="{{router.url('accueil')}}">Accueil </a></li>
+                <li><a href="{{router.url('chambres')}}">Chambres</a></li>
+                <li><a href="{{router.url('contact')}}">Contact </a></li>
+                {% if not connected %}
+                  <li><a href="{{router.url('inscription')}}">Inscription </a></li>
+                {% endif %}
+                
+                <li><a href="{{router.url('accueil')}}#reservation"><button class="navbar-btn">Réserver</button> </a></li>
+                <li>
+                  {% if connected %}
+                      <a href="{{router.url('deconnexion')}}"><button class="navbar-btn">Deconnexion</button> </a>
+                      {% else %}
+                      <a href="{{router.url('connexion')}}"><button class="navbar-btn">Connexion</button> </a>
+                  {% endif %}
+                  
+                </li>
+            </ul>
+    
+        <ul class="navbar__links">
+          {% if admin %}
+          <li class="navbar__link" ><a href="{{router.url('admin')}}">Administration</a></li>
+          {% endif %}
+          <li class="navbar__link first"><a href="{{router.url('accueil')}}">Accueil</a></li>
+          <li class="navbar__link second"><a href="{{router.url('chambres')}}">Chambres</a></li>
+          <li class="navbar__link third"><a href="{{router.url('contact')}}">Contact</a></li>
+          {% if not connected %}
+            <li class="navbar__link fifth"><a href="{{router.url('inscription')}}">Inscription</a></li>
+          {% endif %}
+          
+          
+         </ul>  
+        <div class="btn">
+          {% if connected %}
+            <a href="{{router.url('deconnexion')}}" class="btn1">Deconnexion</a>
+            {% else %}
+              <a href="{{router.url('connexion')}}" class="btn1">Connexion</a>
+          {% endif %} 
+            
+        </div> 
+       
+      </nav>
+    {% block content %}{% endblock %}
+    <div class="footer">
+      <div class="footerL">
+          <h1><span>M</span>yfras Hotel</h1> 
+          <h4>adresse.bastos@gmail.com</h4>
+          <h4>Tizi Ouzou</h4>
+          <h4>Tel:000000000</h4>
+      </div>
+      <div class="footerR">
+  <h2>Nous contacter</h2>
+  <input type="text" placeholder="">
+  <div class="logo">
+     <a href="www.facebook.com"><img src="static/img/fcbk.png" alt=""></a>
+     <a href="www.instagram.com"><img src="static/img/inst.png" alt=""></a>
+     <a href="www.twitter.com"><img src="static/img/twiter.png" alt=""></a>
+  </div>
+  
+  
+      </div>
+  </div>
+    {% block js %}{% endblock  %}
+    <script src="{% block navbarJs %}{% endblock %}navbar.js"></script>
+</body>
+</html>

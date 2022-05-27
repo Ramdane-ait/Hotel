@@ -1,0 +1,106 @@
+
+.connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/image3.jpg);
+    background-size: cover;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100vh;
+    background-position: unset;
+}
+.connexionform{
+     padding: 7em 0.2em;
+     background: rgba(255, 255, 255, 0.863);
+     box-shadow: 5px 15px 50px rgba(0, 0, 0, 8);
+    margin-bottom: 18em;
+     border-radius: 2em;
+     justify-content: center;
+     align-items: center;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     justify-content: space-between;
+     position: relative;
+     top: 3em;
+   
+}
+.connexionform .inputboite{
+    position: relative;
+    width: 100%;
+    margin-bottom: 2em;
+}
+.connexionform h3{
+    color: #111;
+    font-size: 1.5em;
+    position: relative;
+    bottom: 3em;
+}
+.connexionform .inputboite input,
+.connexion .inputboite textarea{
+    width: 75%;
+    border: 1px solid #555;
+    padding: 0.5em;
+    color: #111;
+    outline: none;
+    font-weight: 300;
+    resize: none;
+    margin-bottom: 1em;
+    margin-left: 1.5em;
+}
+.connexionform h5{
+    font-style:initial;
+    font-family: 'Cormorant Garamond', serif;
+    color: #222;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    margin-left: 1.2em;
+}
+
+.connexionform .inputboit input[type="submit"]{
+    
+    padding: 0.9em 1em;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #000;
+    background: #ee913b;
+    
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    outline: none;
+    border: none;
+    transition: 0.5s;
+    max-width: 100em;
+    
+    border-radius: 1em;
+    
+}
+.connexionform p{
+    position: relative;
+    top: 4em;
+}
+
+
+@media (min-width:715px) {
+    .connexion{
+        display: flex;
+        align-items: center;
+
+    }
+    .connexionform{
+        padding: 3em 4em;
+        margin-bottom: 5em;
+    }
+    .connexionform h3{
+        position: relative;
+        top: -0.1em;
+        margin-bottom: 1.2em;
+    }
+    .connexionform p{
+        position: relative;
+        margin-bottom: 2em;
+    }
+}

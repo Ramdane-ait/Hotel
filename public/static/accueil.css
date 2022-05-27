@@ -1,0 +1,335 @@
+
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: block;  
+   font-family: 'Cormorant Garamond', serif;
+
+}
+.slider{
+    width: 100%;
+    height: 21em;
+    
+  }
+  
+  .slides{
+   display: none;
+   width: 100%;
+  
+  }
+ 
+ 
+  .galerie{
+   position:absolute;
+   width: 100%;
+   height: 20em;
+  }
+  .titre{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    
+  }
+  .slides h2{
+   
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5em;
+    font-size: 1.8em;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .slides P{
+    font-size: 1.2em;
+    position: absolute;
+    top: 50%;
+    width: 70%;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .prev,
+  .next{
+  cursor: pointer;
+  color: black;
+  position: absolute;
+  padding: 16px;
+  border-radius: 3px 3px 3px 3px;
+  background:rgba(0, 0, 0, .5);
+  transition: all .3s;
+  }
+  .prev{
+    transform: translate(0, -50%);
+  left: 0;  
+  top: 50%;
+  }
+  .next{
+    transform: translate(50%, 0);
+    right: 1em;
+    top: 45%;
+  }    
+  .dot{
+   position: relative;
+   bottom: 3em;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin: 10px 2px 0 2px ;
+    display: inline-block;
+    background:#ddd;
+    transition: all .3s; 
+  }
+  .active,
+  .dot:hover {
+    background:rgba(0, 0, 0, .8);
+  }
+  .sbar{
+   position: relative;
+    background-color: rgb(194, 194, 194);
+      
+      width: 100%;
+      display:flex ;
+      flex-direction: column;
+      align-items: center;
+      transition: 0.5s;
+  
+  }
+ .sbar h2{
+  font-size: 1.5em;
+  width: 50%;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+ }
+
+ .date input{
+   border-radius: 0.5em;
+   background-color:rgba(128, 125, 125, 0.109) ;
+   border: none;
+ }
+
+ .sbar button{
+  color: #000;
+  height: 2.5em;
+  width: 8em;
+ background: #41ace8;
+  text-transform: uppercase;
+  border-radius: 1em;
+  text-align: center;
+margin-bottom: 1.5em;
+margin-top: 1.1em;
+border: none;
+font-family: 'Cormorant Garamond', serif;
+ 
+ }
+
+
+ .presentation_all{
+    background-color: white;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.presentation{
+    margin-top: 1.5em;
+    background-color: white;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+}
+.presentation h2 {
+  margin-bottom: .8em;
+}
+
+.btne{
+  display: flex;
+  align-items: center;
+ 
+  color: #000;
+  height: 2.5em;
+  width: 8em;
+ background: #41ace8;
+  text-transform: uppercase;
+  border-radius: 1em;
+ 
+   margin-top: 2em;
+border: none;
+}
+ .btne a{
+  position: relative;
+  color: #000;
+  left: 1.2em;
+  text-decoration: none;
+ }
+
+.slider1{
+  position:relative;
+  width: 100%;
+  height: auto;
+  margin:2em 0 1.4em 0;
+}
+.slides1{
+ display: none ;
+}
+.galerie1{
+ width: 100%;
+}
+.all{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+.discription{
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  margin-top: 50px;
+  }
+  .discription h3{
+    font-size: 2em;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .discription p{
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .all img{
+    width: 20em;
+    height: 15em;
+  }
+  .all button{
+    color: #000;
+    height: 2.5em;
+    width: 8em;
+   background: #41ace8;
+    text-transform: uppercase;
+    border-radius: 1em;
+    text-align: center;
+  margin-top: 2.5em;
+  border: none;
+  font-family: 'Cormorant Garamond', serif;
+  }
+.prev1,
+.next1{
+cursor: pointer;
+color: black;
+position: absolute;
+padding: 16px;
+border-radius: 3px 3px 3px 3px;
+background:rgba(0, 0, 0, .5);
+transition: all .3s;
+}
+.prev1{
+  transform: translate(0, -50%);
+  top: 50%;
+left: 1em;  
+}
+.next1{
+  transform: translate(50%, 0);
+  top: 45%;
+  right: 2em;
+}   
+.next1:hover{
+  opacity:1 ;
+} 
+
+.prev1:hover{
+  opacity:1 ;
+} 
+.dot1{
+  display: none;
+
+}
+@media (min-width:1115px) {
+  .sbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
+    
+  }
+  .sbar h2{
+    font-size: 1.5em;
+    text-align: center;
+    width: 30%;
+    
+    
+   }
+  .date{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    
+    justify-content: space-between;
+  }
+  .date input{
+    margin-left: 5em;
+    margin-right: 2em;
+  }
+  .sbar button{
+    margin-left: 10em;
+    margin-top: 1.5em;
+  }
+}
+@media (min-width:715px) {
+
+.presentation{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.presentation p{
+  text-align: center;
+width: 70%;
+}
+.discription{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 7em;
+}
+.discription p{
+  text-align: center;
+}
+.all{
+  justify-content: space-between;
+}
+
+
+ .presentation_all{
+   margin-top: 2em;
+ }
+.all{
+  display: flex;
+  flex-direction: row;
+}
+.all img{
+  height: 20em;
+  width: 23em;
+  margin-right: 2em;
+}
+.all button{
+  display: none;
+}
+.dot1{
+  position: relative;
+   bottom: 3em;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin: 10px 2px 0 2px ;
+    display: inline-block;
+    background:#ddd;
+    transition: all .3s; 
+}
+.active,
+  .dot1:hover {
+    background:rgba(0, 0, 0, .8);
+  }
+}

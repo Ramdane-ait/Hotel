@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block footer %}static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block links %}../static/connexion.css{% endblock  %}
+
+{% block content %}
+
+<form method="post" action="{{action}}" class="connexion" id="connexion">
+    <div class="connexionform">
+        <h3>Connexion ADMIN: </h3>
+        {% if errors.mdp %}
+          
+        <div class="error" style="color:red; font-size:.8em;">{{errors.mdp}}</div>
+      
+    {% endif %}
+    {% if connect %}
+    <div class="error" style="color:red; font-size:.8em;">Vueillez vous connecter</div>
+    {% endif %}
+        <div class="inputboite">
+            <h5 class="titr-text">Email:</h5>
+              <input type="email" name="email" placeholder="">
+        </div>
+        <div class="inputboite">
+            <h5 class="titr-text">Mot de passe :</h5>
+              <input type="password" name="mdp" placeholder="">
+        </div>
+        
+        <div class="inputboit">
+            <input type="submit" value="Confirmer">
+        </div>
+        <p class="inscription">Vous n'avez pas de compte? <a href="{{router.url('inscription')}}">Inscrivez-vous</a></p> 
+        </div>
+</form>
+    
+
+
+{% endblock  %}
+
+{% block js %}{% endblock  %}
