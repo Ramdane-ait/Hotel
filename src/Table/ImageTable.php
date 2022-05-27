@@ -23,13 +23,13 @@ final class ImageTable extends Table{
             'name' => $image->getName(),
         ],$image->getId());
     }
-    public function findImages(int $idChambre){
-        $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id_chambre = :idChambre");
-        $query->execute(['idChambre' => $idChambre]);
+    public function findImages(int $idType){
+        $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id_type = :idType");
+        $query->execute(['idType' => $idType]);
         $query->setFetchMode(PDO::FETCH_CLASS,$this->class);
         $result = $query->fetchAll();
         if ($result === false){
-            throw new NotFoundException($this->table,$idChambre);
+            throw new NotFoundException($this->table,$idType);
         }
         return $result;
     

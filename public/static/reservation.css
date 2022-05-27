@@ -1,139 +1,181 @@
 
-  /* Reset */
- a {
-   text-decoration: none;
-   color: inherit;
- }
-  ul {
-    list-style:none;
+a {
+  text-decoration: none;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  background-color: rgba(0,0,0,.5);
+}
+.container::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index:-1;
+  opacity: .6;
+  background: url('img/image3.jpg') no-repeat;
+  background-size: cover;
+
+}
+.tr-title{
+  text-align:center; 
+  font-size: 1.8em; 
+  margin-bottom: 20px;  
+}
+p {
+  margin: 10px 0;
+  font-size: .9em;
+}
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.type-container{
+  width:350px;
+  height: 300px;
+  font-size: 1.3em;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  border: solid 1px #000;
+  margin:10px;
+}
+
+.type-frame {
+  width:100%;
+  height: 130px;
+  color:#fff;
+  font-weight: bold;
+  background-color: rgba(0,0,0,.4);
+  padding:5px;
+  position: relative;
+}
+.btn-consulter {
+  position: absolute;
+  right: .5em;
+  bottom: .5em;
+  padding:.6em;
+  background-color: #D2691E;
+  color:#fff;
+  font-size: .8em;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: .7em;
+}
+.btn-consulter:hover{
+  background-color: #ff9549;
+  padding:1em;
+  -webkit-box-shadow: 1px 6px 14px -3px #000000; 
+  box-shadow: 1px 6px 14px -3px #000000;
+}
+.type-container:hover {
+  width:360px;
+  height: 310px;
+  -webkit-box-shadow: 1px 6px 14px -3px #000000; 
+  box-shadow: 1px 6px 14px -3px #000000;
+}
+/* barre de progression*/
+.stepper-wrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  width: 60vw;
+}
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stepper-item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 8px solid #ccc;
+  width: 100%;
+  top: 18px;
+  left: -50%;
+  z-index: 2;
+}
+
+.stepper-item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 8px solid #ccc;
+  width: 100%;
+  top: 18px;
+  left: 50%;
+  z-index: 2;
+}
+
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ccc;
+  margin-bottom: 6px;
+}
+
+.stepper-item.active {
+  font-weight: bold;
+}
+.stepper-item.active .step-counter {
+  background-color: #EE913BE5;
+}
+
+.stepper-item.completed .step-counter {
+  background-color: #EE913BE5;
+}
+
+.stepper-item.completed::after {
+  position: absolute;
+  content: "";
+  border-bottom: 8px solid #EE913BE5;
+  width: 100%;
+  top: 18px;
+  left: 50%;
+  z-index: 3;
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+.stepper-item:last-child::after {
+  content: none;
+}
+@media (min-width:715px){
+  .cards-container{
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
   }
-  
-  /* Basic style */
-  body {
-    
-    font-family: 'Cormorant Garamond', serif;
+  .type-container {
+      width:400px;
+      height: 380px;
   }
-   /*chambre*/
-   .noir .titr-texte,
-   .noir p{
-    font-family: 'Cormorant Garamond', serif;
-       color: #000;
-      text-align: center;
-     font-size: 1em;
-     margin-top: 2em;
-   }
-   .chambrecartes{
-     display: flex;
-     justify-content: center;
-     flex-direction:column;
-     align-items: center;
-     text-align: center;
-     position: relative;
-     top: 12em;
-     left: 6em;
-     margin-top: 2em;
- }
- .chambrecarte{
-     margin: 2em;
-     width: 13em;
-     height: 25em;
-     transform: translate(-50%, -50%);
-     background: rgba(0, 0, 0, 0.466);
-     display: grid;
-     border-radius: 0.5em;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-around;
-     align-items: center;
- }
- .imagec{
-     width: 100%;
-     height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      bottom: 6em;
-   }
-   .imagec img {
-       width:13em;
-       height: 10em;
-   }
-   .texte p{
-    font-family: 'Cormorant Garamond', serif;
-     font-style:bold;
-    text-align: center;
-    font-size: 1em;
-    position: relative;
-    bottom: 8.5em;
-   }
-   .texte h2{
-    font-family: 'Cormorant Garamond', serif;
-     font-style:bold;
-     text-align: center;
-     font-size: 1em;
-     position: relative;
-     bottom: 6.5em;
-   }
-   .btnconsulter a{
-     color: #000;
-      height: 2.5em;
-      width: 8em;
-     background: #ee913b;
-      text-transform: uppercase;
-      border-radius: 1em;
-      text-align: center;
-      margin-bottom: 0.7em;
-      position: relative;
-      bottom: 4em;
-      border: none;
-      padding:.5em;
-      cursor: pointer;
-      
+  .type-container:hover {
+      width:400px;
+      height: 390px;
+      -webkit-box-shadow: 1px 6px 14px -3px #000000; 
+      box-shadow: 1px 6px 14px -3px #000000;
   }
-  .chambrecartes .btnconsulter a:hover{
-    letter-spacing: 0.2em;
-    background: #f37c0c;
-    transition: ease-in-out;
+  .stepper-wrapper {
+      width: 40vw;
   }
-  .btnchoisir button{
-     color: #000;
-      height: 2.5em;
-      width: 8em;
-     background: #41ace8;
-      text-transform: uppercase;
-      border-radius: 1em;
-      text-align: center;
-      margin-bottom: 0.7em;
-      position: relative;
-      bottom: 3em;
-      border: none;
-      cursor: pointer;
-      
-  }
- .chambrecartes .btnchoisir button:hover{
-    letter-spacing: 0.2em;
-    background: #048edf;
-    transition: ease-in-out;
-  }
- 
-  @media (min-width:715px) {
-    .chambre{
-      height: 100vh;
-        margin-top: 2em;
-        margin-bottom: 4em;
-    }
-    .chambrecartes{
-        flex-wrap: wrap;
-     flex-direction: row;
-     align-items: center;
-     width: 100%;
-     height: 80vh;
-     justify-content: center;
- }
- .noir .titr-texte,
- .noir p{
-     font-size: 2em;
-     margin-top: 3em;
- }
-  }
+}

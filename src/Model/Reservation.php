@@ -9,7 +9,6 @@ class Reservation {
     private $idClient;
     private $dateArrivee;
     private $dateDepart;
-    private $typePaiement;
 
     /**
      * Get the value of idChambre
@@ -91,23 +90,4 @@ class Reservation {
         return $this;
     }
 
-    /**
-     * Get the value of typePaiement
-     */ 
-    public function getTypePaiement()
-    {
-        return $this->typePaiement;
-    }
-
-    /**
-     * Set the value of typePaiement
-     *
-     * @return  self
-     */ 
-    public function setTypePaiement($typePaiement)
-    {
-        $this->typePaiement = $typePaiement;
-
-        return $this;
-    }
 }

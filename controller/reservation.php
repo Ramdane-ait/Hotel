@@ -17,16 +17,19 @@ if (Auth::check()){
         
         
         if ($v->validate() && $_POST['dateA'] < $_POST['dateD']){
+            $pdo = Connection::getPdo();
             $_SESSION['dateA'] = $_POST['dateA'];
             $_SESSION['dateD'] = $_POST['dateD'];
-            $reservationTable = new ReservationTable(Connection::getPdo());
-            $imagesTable = new ImageTable(Connection::getPdo());
+            $reservationTable = new ReservationTable($pdo);
+            $imagesTable = new ImageTable($pdo);
             $images = [];
-            $chambres = $reservationTable->verifyDispo($_POST['dateA'],$_POST['dateD']);
-            foreach ($chambres as $chambre){
-                $images[$chambre->getId()] = $imagesTable->findImages($chambre->getId())[0];
+            $types = $reservationTable->findTypeDispo($_POST['dateA'],$_POST['dateD']);
+            foreach ($types as $type){
+                $images[$type->getId()] = $imagesTable->findImages($type->getId())[0]->getName();
             }
-            echo $twig->render($view,['chambres' => $chambres,'images' => $images,'router' => $router,'connected' => isset($_SESSION['auth'])]);
+
+
+            echo $twig->render($view,['types' => $types,'images' => $images,'router' => $router,'connected' => isset($_SESSION['auth'])]);
         } else {
             header('Location: ' . $router->url('accueil') . '?error=1');
             

@@ -9,6 +9,10 @@ class Type {
 
     private $nb_personnes;
 
+    private $description;
+
+    private $prix;
+
     
 
     /**
@@ -67,6 +71,46 @@ class Type {
     public function setNbPersonnes($nb_personnes)
     {
         $this->nb_personnes = $nb_personnes;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of description
+     */ 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     *
+     * @return  self
+     */ 
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of prix
+     */ 
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Set the value of prix
+     *
+     * @return  self
+     */ 
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
 
         return $this;
     }
