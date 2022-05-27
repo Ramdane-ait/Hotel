@@ -78,5 +78,17 @@ class ReservationTable extends Table {
 
     }
 
+    public function addAddons($idRes,$idAddon) {
+        $query = $this->pdo->prepare(
+            "INSERT INTO addons_reservation 
+                    SET id_addon = :idAddon, id_reservation = :idRes"
+            );
+        
+        return $query->execute([
+            'idAddon' => $idAddon,
+            'idRes' => $idRes
+        ]);
+        
+    }
 
 }

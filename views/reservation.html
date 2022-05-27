@@ -29,7 +29,7 @@
                 <p>{{type.getNomType}}</p>
                 <p>tarif: {{type.getPrix}}DA</p>
                 <p>{{type.getNbPersonnes}} personnes</p>
-                <form  action="{{router.url('paiement')}}" method="post" >
+                <form  action="{{router.url('addons')}}" method="post" >
                     <input type="text" style="display: none;" name="idType" value="{{type.getId}}">
                     <input type="text" style="display: none;" name="prix" value="{{type.getPrix}}">
                     <button type="submit" class="btn-consulter">Choisir</button>

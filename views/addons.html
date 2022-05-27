@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+{% block navbar %}static/{% endblock  %}
+{% block footer %}static/{% endblock %}
+{% block navbarJs %}static/{% endblock  %}
+{% block links %}static/addons.css{% endblock  %}
+
+{% block content %}
+<div class="container">
+    <div class="stepper-wrapper">
+        <div class="stepper-item completed">
+        <div class="step-counter">I</div>
+        <div class="step-name">Types</div>
+        </div>
+        <div class="stepper-item active">
+        <div class="step-counter">II</div>
+        <div class="step-name">Extras</div>
+        </div>
+        <div class="stepper-item">
+        <div class="step-counter">III</div>
+        <div class="step-name">Recap</div>
+        </div>
+    </div>
+    <h1>Extras</h1>
+    <div class="addons-container">
+
+        {% for addon in addons %}
+            <div class="addons-card" id="{{addon.getId}}" onclick="addons(this)">
+                <div class="addons-image">
+                    <img src="static/img/{{addon.getImage}}" alt="">
+                </div>
+                <div class="addons-dis">
+                    <p>{{addon.getNom}}</p>
+                    <p>prix:{{addon.getPrix}} DA</p>
+                    <p class="description">
+                        {{addon.getDescription}}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="btnConfirmer" id="btnConfirmer" onclick="confirmer('{{recap}}')">Confirmer</button>
+</div>
+
+{% endblock  %}
+
+{% block js %} <script src="static/addons.js"></script> {% endblock  %}
+
+
+    
+    

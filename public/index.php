@@ -17,7 +17,7 @@ $router
     ->match('/deconnexion','deconnexion','deconnexion')
     ->get('/admin','admin/admin','admin')
     ->match('/reservation','reservation','reservation')
-    ->match('/paiement','paiement','paiement')
+    ->match('/addons','addons','addons')
     ->match('/recapitulatif','recapitulatif','recap')
     ->match('/admin/ajouter','admin/ajouter','nouvelle_chambre')
     ->match('/admin/modifier/[i:id]','/admin/modifier','modifier_chambre')

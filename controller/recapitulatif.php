@@ -4,7 +4,7 @@ use App\Auth;
 use App\Connection;
 use App\Model\Reservation;
 use App\Table\ReservationTable;
-
+dd($_GET);
 if (Auth::check()){
     if(!empty($_POST['type_paiement'])){
         $_SESSION['type_paiement'] = $_POST['type_paiement'];  
@@ -12,11 +12,10 @@ if (Auth::check()){
     
     $reservation = new Reservation();
     $rTable = new ReservationTable(Connection::getPdo());
-    $reservation->setIdChambre($_SESSION['id_chambre'])
+    $reservation->setIdChambre($_SESSION['idType'])
     ->setIdClient($_SESSION['auth']->getId())
     ->setDateArrivee($_SESSION['dateA'])
-    ->setDateDepart($_SESSION['dateD'])
-    ->setTypePaiement($_SESSION['type_paiement']);
+    ->setDateDepart($_SESSION['dateD']);
 
     if (!empty($_GET['confirm'])){    
         $rTable->createReservation($reservation);
