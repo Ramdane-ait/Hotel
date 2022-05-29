@@ -1,24 +1,25 @@
 <?php
 
 use App\Connection;
-use App\Table\ChambreTable;
+use App\Table\TypeTable;
 use App\Table\ImageTable;
+use App\Table\ChambreTable;
 
 if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
 
 $pdo = Connection::getPdo();
-$chambreTable = new ChambreTable($pdo);
+$typeTable = new TypeTable($pdo);
 $imagesTable = new ImageTable($pdo);
 $images = [];
-$chambres = $chambreTable->all();
-foreach ($chambres as $chambre){
-    $images[$chambre->getId()] = $imagesTable->findImages($chambre->getId());
+$types = $typeTable->all();
+foreach ($types as $type){
+    $images[$type->getId()] = $imagesTable->findImages($type->getId())[0]->getName();
 }
 
 $elements = [
-    'chambres' => $chambres,
+    'types' => $types,
     'images' => $images,
     'router' =>  $router,
     'connected' => isset($_SESSION['auth']),

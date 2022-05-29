@@ -9,7 +9,7 @@ $router = new App\Router();
 
 $router
     ->get('/','accueil','accueil')
-    ->get('/chambres','chambres','chambres')
+    ->get('/types','types','types')
     ->match('/contact','contact','contact')
     ->match('/inscription','inscription','inscription')
     ->match('/connexion','connexion','connexion')

@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block navbar %}static/{% endblock  %}
+{% block navbarJs %}static/{% endblock  %}
+{% block footer %}static/{% endblock  %}
+{% block links %}static/types.css{% endblock  %}
+
+{% block content %}
+<div class="container">
+    <h1>Consulter un type de chambre</h1>
+    <div class="type-container">
+        {% for type in types %}
+        <div class="type-card">
+            <div class="type-image">
+                <img src="static/img/{{images[type.getId]}}" alt="">
+            </div>
+            <div class="type-dis">
+                <p>{{type.getNomType}}</p>
+                <p>prix:{{type.getPrix}} DA</p>
+                <p class="description">{{type.getDescription}}</p>
+                <a href="" class="btn consulter">Consulter</a>
+                <a href="" class="btn verifier" id="verifier" onclick="verifier('{{type.getId}}')">Verifier disponibilité</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div id="myModal" class="modal">
+
+    
+    <form method="post" action="" class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Veuillez saisir deux dates:</h2>
+        <div>
+            <label for="dateA">date d'arrivée</label>
+            <input type="date" name="dateA" id="dateA">
+        </div>
+        <div>
+            <label for="dateD">date de depart</label>
+            <input type="date" name="dateD" id="dateD">
+        </div>
+        <input type="number" name="typeId" id="typeId" style="display:none;">
+        <button type="submit" class="btn verifier">Verifier</button>
+    </form>
+</div>
+{% endblock  %}
+
+{% block js %}<script src="types.js"></script>{% endblock  %}
+
