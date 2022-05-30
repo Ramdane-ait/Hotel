@@ -4,11 +4,11 @@ use App\Connection;
 use App\Table\TypeTable;
 use App\Table\ImageTable;
 use App\Table\ChambreTable;
+use App\Table\ReservationTable;
 
 if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
-
 $pdo = Connection::getPdo();
 $typeTable = new TypeTable($pdo);
 $imagesTable = new ImageTable($pdo);
@@ -19,6 +19,7 @@ foreach ($types as $type){
 }
 
 $elements = [
+    'addonsUrl' => $router->url('addons'),
     'types' => $types,
     'images' => $images,
     'router' =>  $router,

@@ -13,7 +13,7 @@ if (Auth::check()){
     $reservation = new Reservation();
     $rTable = new ReservationTable($pdo);
 
-    $reservation->setIdChambre((new ChambreTable($pdo))->findRoom($_SESSION['idType']))
+    $reservation->setIdChambre($rTable->selectRoom($_SESSION['dateA'],$_SESSION['dateD'],$_SESSION['idType']))
     ->setIdClient($_SESSION['auth']->getId())
     ->setDateArrivee($_SESSION['dateA'])
     ->setDateDepart($_SESSION['dateD']);

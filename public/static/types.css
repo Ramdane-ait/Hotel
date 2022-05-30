@@ -25,7 +25,7 @@ img {
   height: 100%;
   z-index:-1;
   opacity: .6;
-  background: url('img/type2.jpg') no-repeat;
+  background: url('img/image3.jpg') no-repeat;
   background-size: cover;
 
 }
@@ -58,15 +58,14 @@ img {
 .description {
   padding:5px;
 }
-.btn {
+.button {
   border-radius: 30px;
   padding:7px 13px;
   border: none;
   font-size: 1.1em;
   margin: 5px 0 ;
-  border: none;
 }
-.btn:hover {
+.button:hover {
   -webkit-box-shadow: 1px 6px 14px -3px #000000; 
   box-shadow: 1px 6px 14px -3px #000000;
   cursor: pointer;

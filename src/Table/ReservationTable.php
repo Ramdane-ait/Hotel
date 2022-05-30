@@ -61,20 +61,39 @@ class ReservationTable extends Table {
 
     }
 
-    public function verifyRoom($dateA,$dateD,$id){
-        $sql = "SELECT id FROM chambre C
-        WHERE C.id = :id AND C.id NOT IN (
+    public function selectRoom($dateA,$dateD,$idType){
+        $sql = "SELECT C.id FROM chambre C
+        LEFT JOIN type T ON C.type_id = T.id
+        WHERE C.id NOT IN (
            SELECT id_chambre FROM reservation R
            WHERE :dateA BETWEEN R.date_arrivee AND R.date_depart
            OR :dateD BETWEEN R.date_arrivee AND R.date_depart
            OR R.date_arrivee BETWEEN :dateA AND :dateD
-           OR R.date_depart BETWEEN :dateA AND :dateD)";
+           OR R.date_depart BETWEEN :dateA AND :dateD)
+        AND C.type_id = :idType LIMIT 1";
        
-        $params = ['id' => $id,'dateA' => $dateA,'dateD' => $dateD];
+        $params = ['dateA' => $dateA,'dateD' => $dateD,'idType' => $idType];
         $query = $this->pdo->prepare($sql);
-        $query->setFetchMode(PDO::FETCH_CLASS,Chambre::class);
         $query->execute($params);
-        return $query->fetchAll();
+        return $query->fetch()[0];
+    }
+
+
+    public function verifyType($dateA,$dateD,$idType){
+        $sql = "SELECT DISTINCT COUNT(T.id) FROM type T
+            LEFT JOIN chambre C ON C.type_id = T.id
+                WHERE C.id NOT IN (
+                   SELECT id_chambre FROM reservation R
+                   WHERE :dateA BETWEEN R.date_arrivee AND R.date_depart
+                   OR :dateD BETWEEN R.date_arrivee AND R.date_depart
+                   OR R.date_arrivee BETWEEN :dateA AND :dateD
+                   OR R.date_depart BETWEEN :dateA AND :dateD)
+                 AND C.type_id = :idType";
+       
+        $params = ['idType' => $idType,'dateA' => $dateA,'dateD' => $dateD];
+        $query = $this->pdo->prepare($sql);
+        $query->execute($params);
+        return (int)$query->fetch(PDO::FETCH_NUM)[0] > 0;
 
     }
 
