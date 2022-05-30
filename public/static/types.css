@@ -29,6 +29,11 @@ img {
   background-size: cover;
 
 }
+.container h1 {
+  margin:10px 0;
+  font-size: 1.7em;
+  text-align: center;
+}
 .type-card,.type-dis {
   display: flex;
   flex-direction: column;

@@ -7,10 +7,12 @@ const btn = document.getElementById("verifier");
 const span = document.getElementsByClassName("close")[0];
 
 
-function verifier(id) {
+function verifier(id,prix) {
   event.preventDefault();
-  let typeId = document.getElementById('typeId');
-  typeId.setAttribute('value',id);
+  let idType = document.getElementById('idType');
+  idType.setAttribute('value',id);
+  let prixInput = document.getElementById('prix');
+  prixInput.setAttribute('value',prix);
   modal.style.display = "block";
 }
 

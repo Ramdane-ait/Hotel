@@ -6,7 +6,8 @@
 
 {% block content %}
 <div class="container">
-    <h1>Consulter un type de chambre</h1>
+    <h1>Types de chambres</h1>
+    {% if error %} <p style="color:red;font-size:1.1em;text-align: center;">Chambre indisponible dans la periode saisie </p> {% endif %}
     <div class="type-container">
         {% for type in types %}
         <div class="type-card">
@@ -18,7 +19,7 @@
                 <p>prix:{{type.getPrix}} DA</p>
                 <p class="description">{{type.getDescription}}</p>
                 <a href="" class="button consulter">Consulter</a>
-                <a href="" class="button verifier" id="verifier" onclick="verifier('{{type.getId}}')">Verifier disponibilité</a>
+                <a href="" class="button verifier" id="verifier" onclick="verifier('{{type.getId}}','{{type.getPrix}}')">Verifier disponibilité</a>
             </div>
         </div>
         {% endfor %}
@@ -38,7 +39,8 @@
             <label for="dateD">date de depart</label>
             <input type="date" name="dateD" id="dateD">
         </div>
-        <input type="number" name="typeId" id="typeId" style="display:none;">
+        <input type="number" name="idType" id="idType" style="display:none;">
+        <input type="number" name="prix" id="prix" style="display:none;">
         <button type="submit" class="button verifier">Verifier</button>
     </form>
 </div>

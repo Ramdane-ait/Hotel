@@ -24,7 +24,8 @@ $elements = [
     'images' => $images,
     'router' =>  $router,
     'connected' => isset($_SESSION['auth']),
-    'admin' => isset($_SESSION['admin'])
+    'admin' => isset($_SESSION['admin']),
+    'error' => isset($_GET['error'])
 ];
 echo $twig->render($view,$elements);
 
