@@ -13,7 +13,7 @@ final class ImageTable extends Table{
     public function createImage(Image $image):void {
         $id = $this->create([
             'name' => $image->getName(),
-            'id_chambre' => $image->getIdChambre(),      
+            'id_type' => $image->getIdType(),      
         ]);
         
         $image->setId($id);

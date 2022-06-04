@@ -4,90 +4,132 @@ namespace App\Model;
 use DateTime;
 
 class Reservation {
+    private $id;
+    private $id_chambre;
+    private $id_client;
+    private $date_arrivee;
+    private $date_depart;
+    private $prix;
 
-    private $idChambre;
-    private $idClient;
-    private $dateArrivee;
-    private $dateDepart;
+    
 
     /**
-     * Get the value of idChambre
+     * Get the value of prix
+     */ 
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Set the value of prix
+     *
+     * @return  self
+     */ 
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_chambre
      */ 
     public function getIdChambre()
     {
-        return $this->idChambre;
+        return $this->id_chambre;
     }
 
     /**
-     * Set the value of idChambre
+     * Set the value of id_chambre
      *
      * @return  self
      */ 
-    public function setIdChambre($idChambre)
+    public function setIdChambre($id_chambre)
     {
-        $this->idChambre = $idChambre;
+        $this->id_chambre = $id_chambre;
 
         return $this;
     }
 
     /**
-     * Get the value of idClient
+     * Get the value of id_client
      */ 
     public function getIdClient()
     {
-        return $this->idClient;
+        return $this->id_client;
     }
 
     /**
-     * Set the value of idClient
+     * Set the value of id_client
      *
      * @return  self
      */ 
-    public function setIdClient($idClient)
+    public function setIdClient($id_client)
     {
-        $this->idClient = $idClient;
+        $this->id_client = $id_client;
 
         return $this;
     }
 
     /**
-     * Get the value of dateArrivee
+     * Get the value of date_arrivee
      */ 
     public function getDateArrivee()
     {
-        return $this->dateArrivee;
+        return $this->date_arrivee;
     }
 
     /**
-     * Set the value of dateArrivee
+     * Set the value of date_arrivee
      *
      * @return  self
      */ 
-    public function setDateArrivee($dateArrivee)
+    public function setDateArrivee($date_arrivee)
     {
-        $this->dateArrivee = $dateArrivee;
+        $this->date_arrivee = $date_arrivee;
 
         return $this;
     }
 
     /**
-     * Get the value of dateDepart
+     * Get the value of date_depart
      */ 
     public function getDateDepart()
     {
-        return $this->dateDepart;
+        return $this->date_depart;
     }
 
     /**
-     * Set the value of dateDepart
+     * Set the value of date_depart
      *
      * @return  self
      */ 
-    public function setDateDepart($dateDepart)
+    public function setDateDepart($date_depart)
     {
-        $this->dateDepart = $dateDepart;
+        $this->date_depart = $date_depart;
 
         return $this;
     }
 
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 }

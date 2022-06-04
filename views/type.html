@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block footer %}../static/{% endblock  %}
+{% block links %}../static/type.css{% endblock  %}
+{% set path = '../' %}
+{% block content %}
+<h1 class ="title">{{type.getNomType}}</h1>
+    <div class="gallery-container">
+        <div class="galery">
+            <div class="image1"><img src="../static/img/{{images[0].getName}}" alt=""></div>
+            <div class="image2"><img src="../static/img/{{images[1].getName}}" alt=""></div>
+            <div class="image3"><img src="../static/img/{{images[2].getName}}" alt=""></div>
+            <div class="image4"><img src="../static/img/{{images[3].getName}}" alt=""></div>
+        </div>
+    </div>
+    <div class="dis-container">
+        <h2 class="dis-title">Description</h2>
+        <p>{{type.getDescription}}</p>
+    </div>
+    <div class="car-container">
+        <h2 class="car-title">caractéristique</h2>
+        <div class="section-container">
+            <div class="section1">
+                <div class="addons">
+                    <div class="cercle"></div>
+                    <p>Climatisation réglable dans la chambre</p>
+                </div>
+
+                <div class="addons">
+                    <div class="cercle"></div>
+                    <p>Plateau thé/café</p>
+                </div>
+                <div class="addons">
+                    <div class="cercle"></div>
+                    <p>Fer et planche à repasser (sur demande)</p>
+                </div>
+                
+            </div>
+            <div class="section2">
+                <div class="addons">
+                    <div class="cercle"></div>
+                    <p>Climatisation réglable dans la chambre</p>
+                </div> 
+                <div class="addons">
+                    <div class="cercle"></div>
+                    <p>Plateau thé/café</p>
+                </div>
+                <div class="addons">
+                    <div class="cercle"></div>
+                    <p>Fer et planche à repasser (sur demande)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock  %}
+
+{% block js %}{% endblock  %}
+

@@ -5,7 +5,7 @@ class Image {
 
     private $id;
     private $name;
-    private $id_chambre;
+    private $id_type;
 
    
 
@@ -41,25 +41,7 @@ class Image {
         return $this;
     }
 
-    /**
-     * Get the value of idChambre
-     */ 
-    public function getIdChambre()
-    {
-        return $this->id_chambre;
-    }
-
-    /**
-     * Set the value of idChambre
-     *
-     * @return  self
-     */ 
-    public function setIdChambre($idChambre)
-    {
-        $this->id_chambre = $idChambre;
-
-        return $this;
-    }
+   
 
     /**
      * Get the value of id
@@ -71,5 +53,25 @@ class Image {
     public function getPath()
     {
         return 'images_chambres/'. $this->name;
+    }
+
+    /**
+     * Get the value of id_type
+     */ 
+    public function getIdType()
+    {
+        return $this->id_type;
+    }
+
+    /**
+     * Set the value of id_type
+     *
+     * @return  self
+     */ 
+    public function setIdType($id_type)
+    {
+        $this->id_type = $id_type;
+
+        return $this;
     }
 }

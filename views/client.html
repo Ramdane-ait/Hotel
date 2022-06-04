@@ -1,0 +1,90 @@
+
+{% extends "layout.html" %}
+{% block navbar %}static/{% endblock  %}
+{% block footer %}static/{% endblock %}
+{% block navbarJs %}static/{% endblock  %}
+{% block links %}static/client.css{% endblock  %}
+
+{% block content %}
+<section class="client" id ="client">
+    <div class ="profil">
+        <div class="image">
+        <div class="imbox">
+            <img src="static/img/image1.jpg" alt="">
+        </div>
+       <a href="">Modifier</a>
+        </div>
+       <p>{{client.getNom}} {{client.getPrenom}}</p>
+    
+</div>
+
+<div class="informations">
+        <p>Vos information</p>
+        <div class="prenom_nom">
+            <div class="a">
+            <p>Nom :</p>
+            <p>Prenom :</p>
+        </div>
+            <div class="b">
+                <p>{{client.getNom}}</p>
+                <p>{{client.getPrenom}}</p>
+            </div>
+        </div>
+    <div class="info"><a href="">changer vos information</a></div>
+    
+</div>
+<div class="trai"></div>
+<div class="email">
+    <p>Adresse E-mail</p>
+    <p>{{client.getEmail}}</p>
+
+<a href="">changer votre E-mail</a>
+
+</div>
+<div class="trai"></div>
+<div class="mot_de_passe">
+<p>mot de passe:</p>
+<a href="">Modifier votre mot de passe</a>
+</div>
+<div class="trai"></div>
+<div class="reservation">
+
+    <p>Reservations prises :</p>
+</div>
+<div class="table-container">
+
+    <table>
+    <tr>
+    <td>N° chambre</td>
+    <td>Date d'arrivèe</td>
+    <td>date de départ</td>
+    <td>Prix</td>
+    <td>annuler</td>
+    </tr>
+    {% for reservation in reservations %}
+    <tr>
+        <td>{{reservation.getIdChambre}}</td>
+        <td>{{reservation.getDateArrivee}}</td>
+        <td>{{reservation.getDateDepart}}</td>
+        <td>{{reservation.getPrix}} DA</td>
+        <td><form method="get" action="{{router.url('annuler',{'id':reservation.getId})}}" 
+            onsubmit="return confirm('Voulez vous vraiment effectuer cette action ?')" style="display:inline;">
+            <button type="submit" class="btnSection">annuler</button>
+            </form>
+        </td>
+    </tr>
+    {% else%}
+    <div class="notFound">pas de reservations effectuées pour le moment</div>
+    {% endfor %}
+    </table>
+</div>
+
+</section>
+
+{% endblock  %}
+
+{% block js %}{% endblock  %}
+
+
+    
+    

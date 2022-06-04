@@ -21,9 +21,11 @@ class ReservationTable extends Table {
             'id_client' => $r->getIdClient(),
             'date_arrivee' => $r->getDateArrivee(),
             'date_depart' => $r->getDateDepart(),
+            'prix' => $r->getPrix() 
         ]);
         
     }
+
     public function verifyDispo($dateA,$dateD){
         $sql = "SELECT * FROM chambre C
         WHERE C.id NOT IN (
@@ -108,6 +110,14 @@ class ReservationTable extends Table {
             'idRes' => $idRes
         ]);
         
+    }
+
+    public function getReservations($idClient) {
+        $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id_client = ? AND date_arrivee > DATE(NOW())");
+        $query->setFetchMode(PDO::FETCH_CLASS,$this->class);
+        $query->execute([$idClient]);
+        return $query->fetchAll();
+
     }
 
 }

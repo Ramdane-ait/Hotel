@@ -10,6 +10,8 @@ $router = new App\Router();
 $router
     ->get('/','accueil','accueil')
     ->match('/types','types','types')
+    ->get('/type/[i:id]','type','type')
+    ->match('/client','client','client')
     ->match('/contact','contact','contact')
     ->match('/inscription','inscription','inscription')
     ->match('/connexion','connexion','connexion')
@@ -22,4 +24,5 @@ $router
     ->match('/admin/ajouter','admin/ajouter','nouvelle_chambre')
     ->match('/admin/modifier/[i:id]','/admin/modifier','modifier_chambre')
     ->get('/admin/supprimer/[i:id]','/admin/supprimer','supprimer_chambre')
+    ->get('/annuler/[i:id]','annuler','annuler')
     ->run();

@@ -18,7 +18,7 @@
                 <p>{{type.getNomType}}</p>
                 <p>prix:{{type.getPrix}} DA</p>
                 <p class="description">{{type.getDescription}}</p>
-                <a href="" class="button consulter">Consulter</a>
+                <a href="{{router.url('type',{id:type.getId})}}" class="button consulter">Consulter</a>
                 <a href="" class="button verifier" id="verifier" onclick="verifier('{{type.getId}}','{{type.getPrix}}')">Verifier disponibilité</a>
             </div>
         </div>

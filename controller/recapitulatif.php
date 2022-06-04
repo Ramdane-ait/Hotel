@@ -12,14 +12,24 @@ if (Auth::check()){
     $pdo = Connection::getPdo();
     $reservation = new Reservation();
     $rTable = new ReservationTable($pdo);
+    $prixAddon = 0;
+    if (!empty($_GET['addons'])){
+        $addons = explode(',',$_GET['addons']);
+        $aTable = new AddonsTable($pdo); 
+        foreach ($addons as $addon){
+            $prixAddon += $aTable->getPrice($addon)[0];
+        }
+    }
+    $prix = ($_SESSION['prix'] * (int)date_diff(new DateTime($_SESSION['dateA']) ,new DateTime($_SESSION['dateD']))->format('%a')) + $prixAddon;
 
     $reservation->setIdChambre($rTable->selectRoom($_SESSION['dateA'],$_SESSION['dateD'],$_SESSION['idType']))
     ->setIdClient($_SESSION['auth']->getId())
     ->setDateArrivee($_SESSION['dateA'])
-    ->setDateDepart($_SESSION['dateD']);
-
+    ->setDateDepart($_SESSION['dateD'])
+    ->setPrix($prix);
     
-    if (!empty($_GET['confirm'])){  
+    
+    if (!empty($_GET['confirm'])){
         $idRes = $rTable->createReservation($reservation);
         if (!empty($_GET['addons'])){
             $addons = explode(',',$_GET['addons']);
@@ -31,18 +41,7 @@ if (Auth::check()){
         
         header('Location:'. $router->url('accueil') . '?confirm=1');
         exit();
-    } else {
-        $prixAddon = 0;
-        if (!empty($_GET['addons'])){
-            $addons = explode(',',$_GET['addons']);
-            $aTable = new AddonsTable($pdo); 
-            foreach ($addons as $addon){
-                $prixAddon += $aTable->getPrice($addon)[0];
-            }
-        }
-        $prix = ($_SESSION['prix'] * (int)date_diff(new DateTime($_SESSION['dateA']) ,new DateTime($_SESSION['dateD']))->format('%a')) + $prixAddon;
-    
-    }
+    } 
     $elements = [
         'addons' =>$_GET['addons'],
         'router' =>  $router,

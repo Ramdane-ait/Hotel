@@ -1,11 +1,3 @@
-* {
-    box-sizing:border-box; 
-    outline:none;
-    margin:0;
-    padding:0;
-    font-family: 'Cormorant Garamond', serif;
-  }
-
 .footer{
     padding-bottom: 20px;
     padding-top: 20px;
@@ -19,31 +11,30 @@
   
   
   .footerL h1, h4 {
-    font-family: 'Cormorant Garamond', serif;
       margin-top: 0.9em;
       text-align: center;
-    color: white;
+      color: #fff;
   }
   .footerL h4{
     font-weight: lighter;
   }
   
   .footerR h2{
-    font-family: 'Cormorant Garamond', serif;
+
       margin-top:0.9em;
       margin-bottom: 0.5em;
       text-align: center;
-    color: white;
+      color: #fff;
   }
   .footerR input{
       width: 15em;
       height: 1.99em;
       background-color: #1f2122;
-      border-color: white;
+      border-color: #fff;
   }
   .logo{
     display: flex;
-  margin-top: 1.5em;
+    margin-top: 1.5em;
     justify-content: space-between;
   }
   .logo img{
