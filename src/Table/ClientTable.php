@@ -25,6 +25,18 @@ class ClientTable extends Table {
         $client->setId($id);
         
     }
+    public function updateClient(Client $client):void {
+        $this->update([
+            'adresse' => $client->getAdresse(),
+            'email' => $client->getEmail(),
+            'tel' => $client->getTel(),
+        ],$client->getId());
+    }
+
+
+    public function updateMdpClient(Client $client):void {
+        $this->update(['mdp' => $client->Mdp],$client->getId());
+    }
 
     public function findByEmail(string $email) {
         $query = $this->pdo->prepare('SELECT * FROM '. $this->table . ' WHERE email=:email');
@@ -37,4 +49,9 @@ class ClientTable extends Table {
         return $result;
     }
 
+    public function findMdp($id){
+        $query = $this->pdo->prepare('SELECT mdp FROM '. $this->table . ' WHERE id=?');
+        $query->execute([$id]);
+        return $query->fetch()[0];
+    }
 }

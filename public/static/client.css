@@ -4,6 +4,7 @@ a {
 .client{
     display: flex;
     flex-direction:column;
+    font-size: 1.3em;
 }
 .profil{
     display: flex;
@@ -45,66 +46,64 @@ a {
     margin-left: 1.2em;
 }
 .informations{
+
     display: flex;
     flex-direction: column;
     margin: 1.5em 0em 0 1.2em;
 }
-.informations a{
-  text-decoration: none;
-  color: rgb(64, 64, 241);
-  margin-bottom: 1.5em;
-}
+
 .prenom_nom{
     display: flex;
-    justify-content: space-around;
+    
 }
-.info{
-    text-decoration: none;
-    color:rgb(64, 64, 241);
-    display: flex;
-    justify-content:flex-end;
-    margin-right: 0.5em;
-    margin-top: .9em;
-}
+
 .trai{
     width: 90%;
     height: 0.1em ;
     background-color:black;
     margin: 1.5em;
 }
-.email{
-    display: flex;
-    flex-direction: column;
+.contact {
     margin-left: 1.5em;
+    font-size: 1.1rem;
+}
+.input-group {
+    margin: 10px 0;
+    display: flex;
     
 }
-.email a{
-    text-decoration: none;
-    color:rgb(64, 64, 241) ;
-    display: flex;
-    justify-content: end;
-    margin-right: 0.5em;
-    margin-top: 0.9em;
+.input-group input {
+    width: 250px;
+    height: 30px;
+    margin-left:10px;
 }
-.mot_de_passe{
+#mdp,#confirm_mdp{
+    width: 150px;
+    height: 30px;
+}
+.btn-modifier {
+    background-color: #302CFA;
+    border-radius: 30px;
+    padding:7px 13px;
+    border: none;
+}
+.btn-modifier:hover {
+    cursor: pointer;
+    background-color: #6562ff;
+    -webkit-box-shadow: 1px 6px 14px -3px #000000; 
+    box-shadow: 1px 6px 14px -3px #000000;
+}
+.update_mdp {
     margin-left: 1.5em;
-}
-.mot_de_passe a{
-    text-decoration: none;
-    color:rgb(64, 64, 241) ;
-    display: flex;
-    justify-content: end;
-    margin-right: 0.5em;
-    margin-top: 0.9em;
-
 }
 .reservation{
     margin: 1.5em;
 }
-.reservation a{
-    text-decoration: none;
-    color:rgb(64, 64, 241) ;
+.reservation h2{
+    text-align: center;
+    margin-bottom: 20px;
 }
+
 .table-container {
     display: flex;
     justify-content: center;
@@ -142,13 +141,5 @@ td{
     background: #048edf;
   }
   @media (min-width:715px) {
-    .info{
-        margin-right: 8em;
-    }
-    .email a{
-        margin-right: 8em;
-    }
-    .mot_de_passe a{
-        margin-right: 5em;
-    }
+   
   }

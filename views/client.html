@@ -9,48 +9,75 @@
 <section class="client" id ="client">
     <div class ="profil">
         <div class="image">
-        <div class="imbox">
-            <img src="static/img/image1.jpg" alt="">
-        </div>
-       <a href="">Modifier</a>
+            <div class="imbox">
+                <img src="static/img/image1.jpg" alt="">
+            </div>
+        <a href="">Modifier</a>
         </div>
        <p>{{client.getNom}} {{client.getPrenom}}</p>
     
-</div>
+    </div>
 
 <div class="informations">
-        <p>Vos information</p>
+        <h2>Vos information</h2>
         <div class="prenom_nom">
             <div class="a">
-            <p>Nom :</p>
-            <p>Prenom :</p>
-        </div>
-            <div class="b">
-                <p>{{client.getNom}}</p>
-                <p>{{client.getPrenom}}</p>
+                <p>Nom : <span>{{client.getNom}}</span></p>
+                <p>Prenom : <span>{{client.getPrenom}}</span></p>
+                <p>Date de naissance : <span>{{client.getDateNaiss.format('d-m-Y')}}</span></p>
+            
             </div>
-        </div>
-    <div class="info"><a href="">changer vos information</a></div>
-    
+            
+        </div>   
 </div>
 <div class="trai"></div>
-<div class="email">
-    <p>Adresse E-mail</p>
-    <p>{{client.getEmail}}</p>
+<form method="post" action="" class="contact">
+    {% if errors %}
+        <div style="color:#f00;" >erreur lors de la saisie d'un des champs</div>
+    {% endif %}
+    <h2>Contact</h2>
+    <div class="input-group">
+        <label for="adresse">Adresse: </label> 
+         <input type="text" name="adresse" id="adresse" value="{{client.getAdresse}}">  
+     </div>
+    <div class="input-group">
+       <label for="email">E-mail: </label> 
+        <input type="email" name="email" id="email" value="{{client.getEmail}}">  
+    </div>
+    <div class="input-group">
+        <label for="tel">Tel: </label> 
+         <input type="tel" name="tel" id="tel" value="{{client.getTel}}">  
+    </div>
+   
+    <button type="submit" class="btn-modifier">modifier</button>
+</form>
 
-<a href="">changer votre E-mail</a>
+<div class="trai"></div>
+<form action="" method="post" class="update_mdp">
+    {% if errorsMdp %}
+        <div style="color:#f00;" >erreur mot de passe invalide</div>
+    {% endif %}
+    <h2>changer Mot de passe:</h2>
+    <div class="input-group">
+        <label for="mdp">mot de passe actuel: </label> 
+         <input type="password" name="mdp" id="mdp"/>  
+    </div>
+    <div class="input-group">
+        <label for="mdp">Nouveau mot de passe: </label> 
+         <input type="password" name="New-mdp" id="New-mdp"/>  
+    </div>
+    <div class="input-group">
+        <label for="confirm_mdp">confirmation:  </label> 
+         <input type="password" name="confirm_Newmdp" id="confirm_Newmdp">  
+    </div>
+    <button type="submit" class="btn-modifier">modifier</button>
+</form>
 
-</div>
 <div class="trai"></div>
-<div class="mot_de_passe">
-<p>mot de passe:</p>
-<a href="">Modifier votre mot de passe</a>
-</div>
-<div class="trai"></div>
+
+
 <div class="reservation">
-
-    <p>Reservations prises :</p>
-</div>
+    <h2>Reservations prises :</h2>
 <div class="table-container">
 
     <table>
@@ -74,11 +101,13 @@
         </td>
     </tr>
     {% else%}
-    <div class="notFound">pas de reservations effectuées pour le moment</div>
+    <tr>
+        <td class="notFound" colspan="5" style="text-align: center;">pas de reservations effectuées pour le moment</td>
+    </tr>
     {% endfor %}
     </table>
 </div>
-
+</div>
 </section>
 
 {% endblock  %}

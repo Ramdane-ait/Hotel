@@ -20,7 +20,7 @@ final class ChambreTable extends Table{
         $chambre->setId($id);
     }
     public function updateChambre(Chambre $chambre):void {
-        $id = $this->update([
+        $this->update([
             'nom' => $chambre->getNom(),
             'description' => $chambre->getDescription(),
             'prix' => $chambre->getPrix(),
