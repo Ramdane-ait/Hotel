@@ -20,8 +20,33 @@ if (Auth::check()){
     $client->setId($_SESSION['auth']->getId());
     $errors = [];
     $errorsMdp = [];
+    $errorImage = '';
+    $clientTable = new ClientTable($pdo);
+    if (isset($_FILES['image'])){
+            $exts= array("jpeg","jpg","png");
+            $imageTmp = $_FILES['image']['tmp_name'];
+            $image = $_FILES['image']['name'];
+            $newImageName = $_SESSION['auth']->getNom() . $_SESSION['auth']->getPrenom();
+            $imageExt =strtolower((explode('.',$image)[1]));
+            $imageSize =$_FILES['image']['size'];
+            
+            if (in_array($imageExt,$exts) && $imageSize < 3145728){
+                if(move_uploaded_file($imageTmp,"images_profil/".$newImageName.".".$imageExt)){
+                    $client->setImageClient($newImageName.".".$imageExt);
+                    $clientTable->updateImageClient($client);
+                    $_SESSION['auth']->setImageClient($newImageName.".".$imageExt);
+                }  else {
+                    $errorImage = "erreur lors de la modification";
+                } 
+            } else {
+                $errorImage = "image invalide";
+            }
+            
+        }
     if(!empty($_POST)){
-        $clientTable = new ClientTable($pdo);
+        
+        
+        
         if (isset($_POST['mdp'])){
             $mdpV = new PasswordValidator($_POST,$clientTable,$_SESSION['auth']->getId());
             if ($mdpV->validate()){
@@ -51,6 +76,7 @@ $elements = [
     'router' => $router,
     'errors' => $errors,
     'errorsMdp' => $errorsMdp,
+    'errorImage' => $errorImage,
     'connected' => isset($_SESSION['auth']),
     'pseudo' => $pseudo
 ];

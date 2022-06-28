@@ -11,6 +11,8 @@ $router
     ->get('/','accueil','accueil')
     ->match('/types','types','types')
     ->get('/type/[i:id]','type','type')
+    ->post('/note','note','note')
+    ->get('/activite','activite','activite')
     ->match('/client','client','client')
     ->match('/contact','contact','contact')
     ->match('/inscription','inscription','inscription')

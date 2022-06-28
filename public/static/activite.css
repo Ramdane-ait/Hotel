@@ -1,0 +1,114 @@
+.activité{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.restaurant{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.restaurant h1{
+    font-size: 3em;
+    text-align: center;
+    margin: 0.6em;
+}
+.image{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  
+}
+.image img{
+   height: 150px;
+}
+.soustitre{
+    margin: 0.5em;
+    
+}
+.soustitre h2{
+    font-size: 1.5em;
+}
+.soustitre h3{
+    font-size: 0.8em;
+}
+.trait{
+   
+    width: 90%;
+    height: 0.1em ;
+    background-color: yellow;
+    margin: 1em;
+}
+.box{
+    width: 80%;
+}
+.chef{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-evenly;
+ margin: 1.5em;
+}
+.chef img{
+    height: 100px;
+}
+.chef h4{
+    font-size: 1.2em;
+}
+.discription{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.discription p{
+    height: 80%;
+
+}
+.Piscine{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Piscine h1{
+  font-size: 3em;
+}
+.Piscine .image img{
+    height: 80px;
+    width:300px;
+}
+@media (min-width:715px) {
+  .image img{
+      height: 450px;
+   }
+   .soustitre{
+      margin: 2em;
+      
+  }
+  .chef{
+      flex-direction: column;
+      justify-content: space-evenly;
+  }
+  .box{
+      display: flex;
+      flex-direction: row-reverse;
+  }
+   .titres p{
+       width: 70%;
+       height: 70%;
+     margin: 3em;
+  }
+  .Piscine .image img{
+      width: 850px;
+      height: 300px;
+  }
+  .Piscine .titres{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+  }
+}

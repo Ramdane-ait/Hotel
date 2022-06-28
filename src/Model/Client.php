@@ -12,6 +12,8 @@ class Client extends Utilisateur {
     private $tel;
 
     private $adresse;
+    
+    private $image_client;
 
 
     /**
@@ -90,6 +92,26 @@ class Client extends Utilisateur {
     public function setAdresse($adresse)
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of image
+     */ 
+    public function getImageClient()
+    {
+        return $this->image_client;
+    }
+
+    /**
+     * Set the value of image
+     *
+     * @return  self
+     */ 
+    public function setImageClient($image)
+    {
+        $this->image_client = $image;
 
         return $this;
     }

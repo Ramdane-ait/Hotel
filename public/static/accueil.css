@@ -134,7 +134,7 @@
 
  .presentation_all{
     background-color: white;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -247,6 +247,201 @@ left: 1em;
   display: none;
 
 }
+
+.temoignage h2{
+  font-size: 2em;
+  text-align: center;
+  color: #000;
+  
+}
+.temoignage{
+  background-image: url(./img/image_hotel.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.temoignage .contenu{
+  display: flex;
+  margin-top: 40px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+}
+.temoignage .contenu .box{
+  width: 20em;
+  height: 15em;
+  margin: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 5px 15px 50px rgba(0, 0, 0, 8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2em;
+  
+}
+.temoignage .contenu .box .imbox{
+  width: 70px;
+  height: 80px;
+  border-radius: 50px;
+ 
+  overflow: hidden;
+}
+.temoignage .contenu .box .imbox img{
+ 
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+}
+.temoignage .contenu .box .etoiles img {
+  width: 35px;
+  height: 35px;
+  margin-left: 2px;
+}
+.temoignage .contenu .box .text{
+  text-align: center;
+  color: #000;
+  font-style: italic;
+  font-size: 1em;
+  width: 15em;
+}
+.temoignage .contenu .box .text h3{
+  color: tomato;
+  margin-top: 20px;
+  font-size: 1em;
+  font-weight: 600;
+}
+.btn_noter{
+  
+  color: #fff;
+   height: 2.5em;
+   width: 8em;
+  background: #D2691E;
+   text-transform: uppercase;
+   border-radius: 1em;
+   text-align: center;
+   border: none;
+   cursor: pointer;
+   margin-bottom: 15px;
+}
+.btn_noter:hover{
+    height: 3em;
+ letter-spacing: 0.2em;
+ background: #f37c0c;
+ transition: ease-in-out;
+}
+
+/*notation*/
+.notation{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  width: 80vw;
+  position: absolute;
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+border-radius: 10px;
+}
+.titre h1 {
+  color: #000;
+}
+.rating {
+direction: rtl;
+}
+.rating a {
+color: #aaa;
+text-decoration: none;
+font-size: 3em;
+transition: color .4s;
+}
+
+
+.rating a:hover,
+.rating a:focus,
+.rating a:hover ~ a,
+.rating a:focus ~ a {
+color: orange;
+cursor: pointer;
+}
+.message{
+ margin: 2em;
+}
+
+.message .inputboites input,
+.inputboites textarea{
+width: 20em;
+border: 0.1em solid #555;
+padding: 0.5em;
+color: #111;
+outline: none;
+font-size: 1em;
+font-weight: 300;
+resize: none;
+height: 10em;
+margin-top: 1.5em;
+}
+.btnSection{
+color: #000;
+ height: 2.5em;
+ width: 8em;
+background: #41ace8;
+ text-transform: uppercase;
+ border-radius: 1em;
+ text-align: center;
+ margin-bottom: 0.7em;
+ position: relative;
+ 
+ border: none;
+ cursor: pointer;
+ 
+}
+.btnSection:hover{
+letter-spacing: 0.2em;
+background: #048edf;
+transition: ease-in-out;
+}
+
+
+.modal {
+display: none;
+position: fixed; 
+z-index: 1; 
+left: 0;
+top: 0;
+width: 100%; 
+height: 100%;
+overflow: auto; 
+background-color: rgba(0,0,0,0.4);
+
+}
+
+.close {
+color: #aaa;
+float: right;
+font-size: 2em;
+font-weight: bold;
+align-self: flex-end;
+margin-right: 7px;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+/* Fin notation*/
 @media (min-width:1115px) {
   .sbar{
     display: flex;
@@ -340,4 +535,21 @@ width: 70%;
   .dot1:hover {
     background:rgba(0, 0, 0, .8);
   }
+
+  .temoignage .contenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.temoignage{
+    background-image: url(./img/image_hotel.jpg);
+    background-size: cover;
+    height: 70vh;
+}
+.btn_noter{
+    margin-top: 3em;
+}
+.notation {
+  width:60vw;
+}
 }

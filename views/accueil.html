@@ -130,7 +130,60 @@
   <a href="{{router.url('types')}}" >Consulter Chambres</a>
 </div>
 </div>
-
+<section class="temoignage" id="temoignage">
+  <div class="titre blanc">
+      <h2 class="titre-texte"> Que Disent Nos Clients</h2>
+  </div>
+  <div class="contenu">
+    {% for key,note in notes %}
+      <div class="box">
+          <div class="imbox">
+              <img src="images_profil/{{clients[key][1]}}" alt="">
+          </div> 
+          <div class="etoiles">
+            {% for star in 0..note.getStars-1 %}
+              <img src="static/img/etoileP.png">
+            {% endfor%}
+          </div>
+              <div class="text">
+                 <p>{{note.getComment}}</p>
+                 <h3>{{clients[key][0]}}</h3>
+              </div>
+        </div>
+      {% endfor %}
+    </div> 
+    {% if connected %}
+      <button class="btn_noter" id="noter" onclick="noter()">Noter</button>
+                  
+    {% endif %}
+                
+     
+   
+  </section>
+  <div class="modal" id="myModal">
+        <form  method="post" action="{{router.url('note')}}" class="notation" id="notation">
+            <span class="close">&times;</span>
+            <div class="titre">
+                <h1>Donnez une note</h1>
+            </div>
+            <div class="rating"> 
+              <!--
+                --><a href="#5" title="Donner 5 étoiles" onclick="star(5)">☆</a><!--
+                --><a href="#4" title="Donner 4 étoiles" onclick="star(4)">☆</a><!--
+                --><a href="#3" title="Donner 3 étoiles" onclick="star(3)">☆</a><!--
+                --><a href="#2" title="Donner 2 étoiles" onclick="star(2)">☆</a><!--
+                --><a href="#1" title="Donner 1 étoile" onclick="star(1)">☆</a>
+                <input type="number" name="stars" id="star" style="display: none;">
+            </div>
+            <div class="message">
+                <h3>Ajouter un commentaire</h3>
+                <div class="inputboites">
+                    <textarea name="comment" placeholder="votre commentaire"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btnSection">Confirmer</button>
+        </form>
+    </div>
 
 {% endblock  %}
 

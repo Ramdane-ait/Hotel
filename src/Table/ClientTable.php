@@ -35,7 +35,10 @@ class ClientTable extends Table {
 
 
     public function updateMdpClient(Client $client):void {
-        $this->update(['mdp' => $client->Mdp],$client->getId());
+        $this->update(['mdp' => $client->getMdp()],$client->getId());
+    }
+    public function updateImageClient(Client $client):void {
+        $this->update(['image_client' => $client->getImageClient()],$client->getId());
     }
 
     public function findByEmail(string $email) {
@@ -55,11 +58,10 @@ class ClientTable extends Table {
         return $query->fetch()[0];
     }
 
-    public function findName($id) {
-        $query = $this->pdo->prepare('SELECT nom,prenom FROM '. $this->table . ' WHERE id=?');
-        $query->execute([$id]);
-        $result = $query->fetch();
-        return $result['nom']. ' ' .$result['prenom'];
+    public function findNameAndImage($id) {
+        $query = $this->pdo->prepare("SELECT CONCAT(nom,' ',prenom),image_client FROM {$this->table} WHERE id=?");
+        $query->execute([$id]);  
+        return $query->fetch();
         
     }
 }

@@ -10,9 +10,9 @@
     <div class ="profil">
         <div class="image">
             <div class="imbox">
-                <img src="static/img/image1.jpg" alt="">
+                <img src="images_profil/{{client.getImageClient}}" alt="">
             </div>
-        <a href="">Modifier</a>
+        <a href="" onclick="modifier()">Modifier</a>
         </div>
        <p>{{client.getNom}} {{client.getPrenom}}</p>
     
@@ -109,10 +109,19 @@
 </div>
 </div>
 </section>
+<div class="modal" id="myModal">
+    <form action="{{router.url('client')}}" method="post" class="modal-content" enctype="multipart/form-data">
+        <span class="close">&times;</span>
+        <h2>Modification de la photo de profil</h2>
+        <img src="images_profil/{{client.getImageClient}}" alt="">
+        <input type="file" name="image" id="image">
+        <button type="submit" class="btnConfirmer">confirmer</button>
+    </form>
+</div>
 
 {% endblock  %}
 
-{% block js %}{% endblock  %}
+{% block js %} <script src="static/client.js"></script> {% endblock  %}
 
 
     
