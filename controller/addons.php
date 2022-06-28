@@ -7,7 +7,11 @@ use App\Table\ReservationTable;
 
 if (Auth::check()){
     $pdo = Connection::getPdo();
-    
+    $pseudo = '';
+    if (isset($_SESSION['auth'])){
+        $pseudo = $_SESSION['auth']->getNom().','.$_SESSION['auth']->getPrenom(); 
+    }
+
 
     if (isset($_POST['dateA']) && isset($_POST['dateD'])){
         $_SESSION['dateA'] = $_POST['dateA'];
@@ -25,7 +29,8 @@ if (Auth::check()){
         'addons' => $addons,
         'router' => $router,
         'recap' => $router->url('recap'),
-        'connected' => isset($_SESSION['auth']) ]); 
+        'connected' => isset($_SESSION['auth']),
+        'pseudo' => $pseudo ]); 
 } else {
     header('Location:' . $router->url('connexion') . '?connect=1');
 }

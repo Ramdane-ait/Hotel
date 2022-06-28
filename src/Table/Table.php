@@ -41,6 +41,11 @@ abstract class Table {
         return (int)$query->fetch(PDO::FETCH_NUM)[0] > 0 ;
     }
 
+    public function count():int {
+        return (int)($this->pdo->query("SELECT COUNT(*) FROM {$this->table}",PDO::FETCH_NUM)->fetch())[0];
+
+    }
+
     public function all():array {
         $sql = "SELECT * FROM {$this->table}";
         return $this->pdo->query($sql,PDO::FETCH_CLASS,$this->class)->fetchAll();

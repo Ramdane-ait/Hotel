@@ -1,156 +1,85 @@
 
-body{
-    margin: 0;
-    width: 100%;
-    font-size: 1.2em;
-    font-family: 'top shop';
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 75%;
+    margin: 25px 0 ;
+}
+
+
+.admin-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80vw;
+    height: 45vw;
+    border-radius: 10px;
+    margin:10px 0;
+    padding: 0 8px;
+}
+.admin-card img {
+  float: right;
+}
+.right {
+    width: 60%;
+    height: 90%;
+}
+.left {
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    height: 70%;
+    margin:0 5px;
 }
-a {
+.left p {
+    font-size: 2em;
+    font-weight: bold;
+
+}
+
+.btnAfficher {
     text-decoration: none;
-    color:inherit;
+    color:#fff;
+    background-color: #000;
+    border-radius: 25px;
+    width:80px;
+    padding:5px;
 }
-.navbar{
-    background-color: black;
-    height: 4em;
-    width: 100%;
-    margin-bottom: 1em;
 
-    
+.btnAfficher:hover {
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 6px 14px -3px #000000; 
+    box-shadow: 1px 6px 14px -3px #000000;
 }
-.titre1{
-    font-size: 1.5em;
-    text-align: center;
-    margin: 1.5em;
+
+@media (min-width:715px){
+
+.admin-card {
+    height: 20vw;
+    width: 65vw;
+    margin: 0 15px;
 }
-.container{
+.row {
     display: flex;
-    flex-direction: column;
-    width: 90%;
-
- }
- .titre2{
-    font-size: 1.3em;
-    text-align: center;
- }
-
-.ajouter{
-    align-self: end;
-    font-size: 1em;
-    width: 5em;
-    height: 1.8em;
-    text-align: center;
-    background-color: #E5969699;
-    border-radius: 0.8em;
-    border: hidden;
-    margin: 0.8em;
-    margin-right: 0;
-}
-.ajouter:hover {
-   cursor: pointer;
-    background-color: #bd676799;
-}
-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    background-color: #F6F1F1;
-}
-tbody tr:nth-child(even){
-    background-color: #D8D8D8 ;
-}
-
-
-table img{
-    height: 1.4em;
-    width: 1.4em;
-}
-.btn-supp {
-    background-color: inherit;
-    border:none;
-    width:26px;
-    height: 26px;
-    cursor: pointer;
-}
-.btn-supp:hover {
-    background-color: inherit;
-}
-
-  @media (max-width:715px){
-      
-   
-td, th { 
-    height:2em ;
-    padding: 0.4em; 
-    border: none; 
-    text-align: center; 
-      }
-
-
-table, thead, tbody, th, td, tr { 
-    display: block; 
-}
-
-
-thead tr { 
-position: absolute;
-top: 100em;
-right: 100em;
-}
-
-tr { border: solid 0.1em rgb(219, 208, 197)}
-
-td { 
-    border: none;
-    position: relative;
-    padding-left: 50%; 
-}
-
-td:before {
-    position: absolute;
-    left: 1em;
-    width: 45%; 
-    padding-right: 5em; 
-    white-space: nowrap;
-}
-
-/*
-ajouter des labels les donnees
-*/
-td:nth-of-type(1):before { content: "N°"; font-weight: bold ;}
-td:nth-of-type(2):before { content: "Nom"; font-weight: bold }
-td:nth-of-type(3):before { content: "Type"; font-weight: bold }
-td:nth-of-type(4):before { content: "Prix"; font-weight: bold}
-td:nth-of-type(5):before { content: "Images"; font-weight: bold }
-td:nth-of-type(6):before { content: "Action"; font-weight: bold}
-
-
-}
-@media (min-width:716px) {
-    
-table{
-    align-self: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
     width: 100%;
-    
-    
-    }
-    thead{
-        height: 1.5em;
-        background-color: #A89F9F;
-    
-    }
-    
-    th, td{
-        text-align: center;
-    }
-    
-    td.detail, th.detail{
-        align-self: flex-end;
-    }
-    tr{
-        height: 2.5em;
-    }
-   
-    
+}
+.left {
+    font-size: 1.3em;
+}
 }

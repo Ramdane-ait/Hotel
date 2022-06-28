@@ -53,6 +53,7 @@ class Router {
 
     public function run() : self {
         $match = $this->router->match();
+        
         try {
         $view = $match['target'] . '.html';
         

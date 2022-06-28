@@ -5,15 +5,9 @@ class Chambre {
 
     private $id;
 
-    private $nom;
-
-    private $description;
-
-    private $prix;
-
     private $type_id;
 
-
+    private $dispo;
 
 
     /**
@@ -36,66 +30,7 @@ class Chambre {
         return $this;
     }
 
-    /**
-     * Get the value of nom
-     */ 
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set the value of nom
-     *
-     * @return  self
-     */ 
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of description
-     */ 
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set the value of description
-     *
-     * @return  self
-     */ 
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of prix
-     */ 
-    public function getPrix()
-    {
-        return $this->prix;
-    }
-
-    /**
-     * Set the value of prix
-     *
-     * @return  self
-     */ 
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
-
-        return $this;
-    }
-
+   
     /**
      * Get the value of type
      */ 
@@ -116,36 +51,25 @@ class Chambre {
         return $this;
     }
 
+   
+
     /**
-     * Get the value of images
+     * Get the value of dispo
      */ 
-    public function getImages()
+    public function getDispo()
     {
-        return $this->images;
+        return $this->dispo;
     }
 
-    public function getImagePath(){
-        return 'images_chambres/'  . $this->images;
-    }
     /**
-     * Set the value of images
+     * Set the value of dispo
      *
      * @return  self
      */ 
-    public function setImages($image)
+    public function setDispo($dispo)
     {
-        $this->images = $image;
+        $this->dispo = $dispo;
 
         return $this;
-    }
-
-    public function getArrayImages():array
-    {
-        $arrayImages = [];
-        $array = explode(',',$this->images);
-        foreach($array as $image){
-            $arrayImages[] = 'images_chambres/' . $image;
-        }
-        return $arrayImages;
     }
 }

@@ -7,21 +7,7 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `addon_reservation`;
-CREATE TABLE `addon_reservation` (
-  `id_addon` int NOT NULL,
-  `id_reservation` int NOT NULL,
-  KEY `id_addon` (`id_addon`),
-  KEY `id_reservation` (`id_reservation`),
-  CONSTRAINT `addon_reservation_ibfk_1` FOREIGN KEY (`id_addon`) REFERENCES `addons` (`id`),
-  CONSTRAINT `addon_reservation_ibfk_2` FOREIGN KEY (`id_reservation`) REFERENCES `reservation` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `addon_reservation` (`id_addon`, `id_reservation`) VALUES
-(2,	10),
-(2,	14),
-(2,	15),
-(2,	19);
 
 DROP TABLE IF EXISTS `addons`;
 CREATE TABLE `addons` (
@@ -31,7 +17,7 @@ CREATE TABLE `addons` (
   `prix_addon` int NOT NULL,
   `image_addon` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `addons` (`id`, `nom_addon`, `description_addon`, `prix_addon`, `image_addon`) VALUES
 (1,	'test',	'aztatattazt',	2000,	'addons1.jpg'),
@@ -45,10 +31,27 @@ CREATE TABLE `admin` (
   `email` varchar(256) DEFAULT NULL,
   `mdp` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `admin` (`id`, `nom`, `prenom`, `email`, `mdp`) VALUES
 (2,	'admin',	'admin',	'admin@admin.admin',	'$2y$10$9dYoIeJpHbK.S6BFrdekPuNyVI20DrII1.n/LtEpZi3c0sMbMhEy.');
+
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE `type` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom_type` varchar(50) NOT NULL,
+  `nb_personnes` int NOT NULL,
+  `description` text NOT NULL,
+  `prix` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `type` (`id`, `nom_type`, `nb_personnes`, `description`, `prix`) VALUES
+(1,	'Suite',	4,	'ttazaztaztata',	8000),
+(2,	'Grande chambre',	4,	'',	6500),
+(3,	'Chambre simple',	1,	'',	2500),
+(4,	'Chambre double',	2,	'',	4500),
+(5,	'Grande suite',	5,	'',	12000);
 
 DROP TABLE IF EXISTS `chambre`;
 CREATE TABLE `chambre` (
@@ -57,7 +60,7 @@ CREATE TABLE `chambre` (
   PRIMARY KEY (`id`),
   KEY `type_id` (`type_id`),
   CONSTRAINT `chambre_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `chambre` (`id`, `type_id`) VALUES
 (87,	1),
@@ -80,7 +83,7 @@ CREATE TABLE `client` (
   `adresse` varchar(256) DEFAULT NULL,
   `mdp` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `client` (`id`, `nom`, `prenom`, `email`, `date_naiss`, `sexe`, `tel`, `adresse`, `mdp`) VALUES
 (4,	'aziz',	'bourmel',	'azizbourmel01@gmail.com',	'2001-04-13 00:00:00',	'femme',	611121314,	'ait argane,ouadhia',	'$2y$10$kFEO2nOOsJBKt2/pDGP47O5BrNhfiI5lUHOwFnqpPPIBprD7ohme6'),
@@ -92,10 +95,9 @@ CREATE TABLE `contact` (
   `email` varchar(256) NOT NULL,
   `message` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `contact` (`id`, `email`, `message`) VALUES
-(2,	'dmdouali1@gmail.com',	'j\'adore votre Hotel, par contre le serveur est impoli');
+
 
 DROP TABLE IF EXISTS `image`;
 CREATE TABLE `image` (
@@ -105,7 +107,7 @@ CREATE TABLE `image` (
   PRIMARY KEY (`id`),
   KEY `id_type` (`id_type`),
   CONSTRAINT `image_ibfk_1` FOREIGN KEY (`id_type`) REFERENCES `type` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `image` (`id`, `name`, `id_type`) VALUES
 (26,	'image1.jpg',	1),
@@ -130,7 +132,7 @@ CREATE TABLE `reservation` (
   KEY `id_client` (`id_client`),
   CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`id_chambre`) REFERENCES `chambre` (`id`),
   CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `reservation` (`id`, `id_chambre`, `id_client`, `date_arrivee`, `date_depart`, `prix`) VALUES
 (3,	90,	4,	'2022-05-20',	'2022-05-24',	NULL),
@@ -151,21 +153,22 @@ INSERT INTO `reservation` (`id`, `id_chambre`, `id_client`, `date_arrivee`, `dat
 (18,	91,	4,	'2022-06-01',	'2022-06-02',	NULL),
 (19,	87,	4,	'2022-06-05',	'2022-06-07',	18000);
 
-DROP TABLE IF EXISTS `type`;
-CREATE TABLE `type` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nom_type` varchar(50) NOT NULL,
-  `nb_personnes` int NOT NULL,
-  `description` text NOT NULL,
-  `prix` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `type` (`id`, `nom_type`, `nb_personnes`, `description`, `prix`) VALUES
-(1,	'Suite',	4,	'ttazaztaztata',	8000),
-(2,	'Grande chambre',	4,	'',	6500),
-(3,	'Chambre simple',	1,	'',	2500),
-(4,	'Chambre double',	2,	'',	4500),
-(5,	'Grande suite',	5,	'',	12000);
+
+DROP TABLE IF EXISTS `addon_reservation`;
+CREATE TABLE `addon_reservation` (
+  `id_addon` int NOT NULL,
+  `id_reservation` int NOT NULL,
+  KEY `id_addon` (`id_addon`),
+  KEY `id_reservation` (`id_reservation`),
+  CONSTRAINT `addon_reservation_ibfk_1` FOREIGN KEY (`id_addon`) REFERENCES `addons` (`id`),
+  CONSTRAINT `addon_reservation_ibfk_2` FOREIGN KEY (`id_reservation`) REFERENCES `reservation` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `addon_reservation` (`id_addon`, `id_reservation`) VALUES
+(2,	10),
+(2,	14),
+(2,	15),
+(2,	19);
 
 -- 2022-06-21 11:59:30

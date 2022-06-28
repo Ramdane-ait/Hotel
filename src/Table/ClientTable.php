@@ -54,4 +54,12 @@ class ClientTable extends Table {
         $query->execute([$id]);
         return $query->fetch()[0];
     }
+
+    public function findName($id) {
+        $query = $this->pdo->prepare('SELECT nom,prenom FROM '. $this->table . ' WHERE id=?');
+        $query->execute([$id]);
+        $result = $query->fetch();
+        return $result['nom']. ' ' .$result['prenom'];
+        
+    }
 }

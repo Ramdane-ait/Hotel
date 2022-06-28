@@ -11,9 +11,6 @@ final class ChambreTable extends Table{
    
     public function createChambre(Chambre $chambre):void {
         $id = $this->create([
-            'nom' => $chambre->getNom(),
-            'description' => $chambre->getDescription(),
-            'prix' => $chambre->getPrix(),
             'type_id' => $chambre->getTypeId(),
         ]);
         
@@ -21,10 +18,7 @@ final class ChambreTable extends Table{
     }
     public function updateChambre(Chambre $chambre):void {
         $this->update([
-            'nom' => $chambre->getNom(),
-            'description' => $chambre->getDescription(),
-            'prix' => $chambre->getPrix(),
-            'type_id' => $chambre->getTypeId(),
+            'dispo' => $chambre->getDispo()
         ],$chambre->getId());
     }
 

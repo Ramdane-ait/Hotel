@@ -4,53 +4,55 @@
 {% block links %}../static/admin.css{% endblock  %}
 
 {% block content %}
-
-
-<div class="titre1">Administration</div>
-<div class="container">
-    <div class="titre2">Chambres:</div>
-    <button class="ajouter"><a href="{{router.url('nouvelle_chambre')}}">Ajouter</a></button>
-    <table class="tab">
-
-        <thead>
-            <tr>
-                <th>N°</th>
-                <th>NOM</th>
-                <th>Type</th>
-                <th>Prix</th>
-                <th>images</th>
-                <th>Action</th>
-
-            </tr>
-        </thead>
-
-
-        <tbody>
-            {% for chambre in chambres %}
-            <tr>
-                <td>{{chambre.getId}}</td>
-                <td>{{chambre.getNom}}</td>
-                <td>{{typeChambre[chambre.getId]}}</td>
-                <td>{{chambre.getPrix}}</td>
-                <td>  
-                    {% for image in images[chambre.getId] %}
-                        <img src="{{image.getPath}}" >
-                    {% endfor %} 
-                </td>
-                <td> <form action="{{router.url('supprimer_chambre',{'id':chambre.getId})}}" 
-                    onsubmit="return confirm('Voulez vous vraiment effectuer cette action ?')" style="display:inline;">
-                    <input type="image" class="btn-supp" src="static/img/sup.png" >
-                        
-                    
-                </form>
-                        <a href="{{router.url('modifier_chambre',{'id':chambre.getId})}}"><img  src="static/img/mod.png"></a>
-                </td>    
-            </tr> 
-            {% endfor %}
-        <tbody>    
-    </table>
-</div>
-
+    <div class="container">
+        <div class="cards-container">
+            <div class="row">
+                <div class="admin-card" style="background-color: #8986FE;">
+                    <div class="left">
+                        <h2>Clients</h2>
+                        <p>{{clients}}</p>
+                        <a href="" class="btnAfficher">afficher</a>
+                    </div>
+                    <div class="right">
+                        <img src="static/img/admin-c.png" alt="">
+                    </div>
+                </div>
+                <div class="admin-card" style="background-color: #8DF87C;">
+                    <div class="left">
+                        <h2>Reservations</h2>
+                        <p>{{reservations}}</p>
+                        <a href="" class="btnAfficher">afficher</a>
+                    </div>
+                    <div class="right">
+                        <img src="static/img/admin-r.png" alt="">
+                    </div>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="admin-card" style="background-color: #FB9C8F;">
+                    <div class="left">
+                        <h2>Messages</h2>
+                        <p>{{messages}}</p>
+                        <a href="" class="btnAfficher">afficher</a>
+                    </div>
+                    <div class="right">
+                        <img src="static/img/admin-m.png" alt="">
+                    </div>
+                </div>
+                <div class="admin-card" style="background-color: #FFB571;">
+                    <div class="left">
+                        <h2>Chambres</h2>
+                        <p>{{chambres}}</p>
+                        <a href="" class="btnAfficher">afficher</a>
+                    </div>
+                    <div class="right">
+                        <img src="static/img/admin-ch.png" alt="">
+                    </div>
+                </div> 
+            </div>
+           
+        </div>
+    </div>
 
 {% endblock  %}
 {% block footer %}{% endblock %}

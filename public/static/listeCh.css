@@ -1,0 +1,145 @@
+
+body{
+    margin: 0;
+    width: 100%;
+    font-size: 1.2em;
+    font-family: 'top shop';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+a {
+    text-decoration: none;
+    color:inherit;
+}
+.navbar{
+    background-color: black;
+    height: 4em;
+    width: 100%;
+    margin-bottom: 1em;
+
+    
+}
+.titre1{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 1.5em;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+ }
+
+
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background-color: #F6F1F1;
+}
+tbody tr:nth-child(even){
+    background-color: #D8D8D8 ;
+}
+
+
+table img{
+    height: 1.4em;
+    width: 1.4em;
+}
+.btnDispo {
+    background-color: chocolate;
+}
+
+.btnDispo:hover {
+    background-color:#807373;
+}
+.btnNotDispo {
+    background-color:#807373;
+}
+.btnNotDispo:hover {
+    background-color: chocolate;
+}
+  @media (max-width:715px){
+      
+   
+td, th { 
+    height:2em ;
+    padding: 0.4em; 
+    border: none; 
+    text-align: center; 
+      }
+
+
+table, thead, tbody, th, td, tr { 
+    display: block; 
+}
+
+
+thead tr { 
+position: absolute;
+top: 100em;
+right: 100em;
+}
+
+tr { border: solid 0.1em rgb(219, 208, 197)}
+
+td { 
+    border: none;
+    position: relative;
+    padding-left: 50%; 
+}
+
+.btnDispo,.btnNotDispo {
+    border:none;
+    padding:5px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+td:before {
+    position: absolute;
+    left: 1em;
+    width: 45%; 
+    padding-right: 5em; 
+    white-space: nowrap;
+}
+
+/*
+ajouter des labels les donnees
+*/
+td:nth-of-type(1):before { content: "N°"; font-weight: bold ;}
+td:nth-of-type(2):before { content: "Type"; font-weight: bold }
+td:nth-of-type(3):before { content: "Disponibilité"; font-weight: bold }
+
+
+
+}
+@media (min-width:716px) {
+    
+table{
+    align-self: center;
+    width: 100%;
+    
+    
+    }
+    thead{
+        height: 1.5em;
+        background-color: #A89F9F;
+    
+    }
+    
+    th, td{
+        text-align: center;
+    }
+    
+    td.detail, th.detail{
+        align-self: flex-end;
+    }
+    tr{
+        height: 2.5em;
+    }
+   
+    
+}

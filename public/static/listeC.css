@@ -1,0 +1,156 @@
+
+body{
+    margin: 0;
+    width: 100%;
+    font-size: 1.2em;
+    font-family: 'top shop';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+a {
+    text-decoration: none;
+    color:inherit;
+}
+.navbar{
+    background-color: black;
+    height: 4em;
+    width: 100%;
+    margin-bottom: 1em;
+
+    
+}
+.titre1{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 1.5em;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+ }
+ .titre2{
+    font-size: 1.3em;
+    text-align: center;
+ }
+
+.ajouter{
+    align-self: end;
+    font-size: 1em;
+    width: 5em;
+    height: 1.8em;
+    text-align: center;
+    background-color: #E5969699;
+    border-radius: 0.8em;
+    border: hidden;
+    margin: 0.8em;
+    margin-right: 0;
+}
+.ajouter:hover {
+   cursor: pointer;
+    background-color: #bd676799;
+}
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background-color: #F6F1F1;
+}
+tbody tr:nth-child(even){
+    background-color: #D8D8D8 ;
+}
+
+
+table img{
+    height: 1.4em;
+    width: 1.4em;
+}
+.btn-supp {
+    background-color: inherit;
+    border:none;
+    width:26px;
+    height: 26px;
+    cursor: pointer;
+}
+.btn-supp:hover {
+    background-color: inherit;
+}
+
+  @media (max-width:715px){
+      
+   
+td, th { 
+    height:2em ;
+    padding: 0.4em; 
+    border: none; 
+    text-align: center; 
+      }
+
+
+table, thead, tbody, th, td, tr { 
+    display: block; 
+}
+
+
+thead tr { 
+position: absolute;
+top: 100em;
+right: 100em;
+}
+
+tr { border: solid 0.1em rgb(219, 208, 197)}
+
+td { 
+    border: none;
+    position: relative;
+    padding-left: 50%; 
+}
+
+td:before {
+    position: absolute;
+    left: 1em;
+    width: 45%; 
+    padding-right: 5em; 
+    white-space: nowrap;
+}
+
+/*
+ajouter des labels les donnees
+*/
+td:nth-of-type(1):before { content: "N°"; font-weight: bold ;}
+td:nth-of-type(2):before { content: "Nom"; font-weight: bold }
+td:nth-of-type(3):before { content: "Prenom"; font-weight: bold }
+td:nth-of-type(4):before { content: "Tel"; font-weight: bold}
+td:nth-of-type(5):before { content: "Email"; font-weight: bold }
+td:nth-of-type(6):before { content: "Adresse"; font-weight: bold}
+
+
+}
+@media (min-width:716px) {
+    
+table{
+    align-self: center;
+    width: 100%;
+    
+    
+    }
+    thead{
+        height: 1.5em;
+        background-color: #A89F9F;
+    
+    }
+    
+    th, td{
+        text-align: center;
+    }
+    
+    td.detail, th.detail{
+        align-self: flex-end;
+    }
+    tr{
+        height: 2.5em;
+    }
+   
+    
+}

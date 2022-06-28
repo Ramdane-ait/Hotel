@@ -10,6 +10,11 @@ use App\Validators\ClientModifValidator;
 use App\Validators\PasswordValidator;
 
 if (Auth::check()){
+    $pseudo = '';
+    if (isset($_SESSION['auth'])){
+        $pseudo = $_SESSION['auth']->getNom().','.$_SESSION['auth']->getPrenom(); 
+    }
+
     $pdo = Connection::getPdo();
     $client = new Client();
     $client->setId($_SESSION['auth']->getId());
@@ -45,7 +50,9 @@ $elements = [
     'reservations' => $reservations,
     'router' => $router,
     'errors' => $errors,
-    'errorsMdp' => $errorsMdp
+    'errorsMdp' => $errorsMdp,
+    'connected' => isset($_SESSION['auth']),
+    'pseudo' => $pseudo
 ];
 
 echo $twig->render($view,$elements);

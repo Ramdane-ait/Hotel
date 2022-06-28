@@ -42,7 +42,7 @@ class ReservationTable extends Table {
         return $query->fetchAll();
 
     }
-
+    /**trouver les types disponibles dans une période  */
     public function findTypeDispo($dateA,$dateD){
         $sql = "SELECT DISTINCT T.id,T.nom_type,T.nb_personnes,T.prix
         FROM type T
@@ -53,7 +53,8 @@ class ReservationTable extends Table {
                    OR :dateD BETWEEN R.date_arrivee AND R.date_depart
                    OR R.date_arrivee BETWEEN :dateA AND :dateD
                    OR R.date_depart BETWEEN :dateA AND :dateD)
-                AND C.id IS NOT NULL";
+                AND C.id IS NOT NULL
+                AND C.dispo = 1";
        
         $params = ['dateA' => $dateA,'dateD' => $dateD];
         $query = $this->pdo->prepare($sql);
@@ -63,6 +64,7 @@ class ReservationTable extends Table {
 
     }
 
+    /* selectionner une chambre parmi un type selectionné */
     public function selectRoom($dateA,$dateD,$idType){
         $sql = "SELECT C.id FROM chambre C
         LEFT JOIN type T ON C.type_id = T.id
@@ -72,7 +74,8 @@ class ReservationTable extends Table {
            OR :dateD BETWEEN R.date_arrivee AND R.date_depart
            OR R.date_arrivee BETWEEN :dateA AND :dateD
            OR R.date_depart BETWEEN :dateA AND :dateD)
-        AND C.type_id = :idType LIMIT 1";
+        AND C.type_id = :idType
+        AND C.dispo = 1 LIMIT 1";
        
         $params = ['dateA' => $dateA,'dateD' => $dateD,'idType' => $idType];
         $query = $this->pdo->prepare($sql);
@@ -80,7 +83,7 @@ class ReservationTable extends Table {
         return $query->fetch()[0];
     }
 
-
+    /* verifier si un type est disponible dans une periode  */
     public function verifyType($dateA,$dateD,$idType){
         $sql = "SELECT DISTINCT COUNT(T.id) FROM type T
             LEFT JOIN chambre C ON C.type_id = T.id
@@ -90,7 +93,8 @@ class ReservationTable extends Table {
                    OR :dateD BETWEEN R.date_arrivee AND R.date_depart
                    OR R.date_arrivee BETWEEN :dateA AND :dateD
                    OR R.date_depart BETWEEN :dateA AND :dateD)
-                 AND C.type_id = :idType";
+                 AND C.type_id = :idType
+                 AND C.dispo = 1";
        
         $params = ['idType' => $idType,'dateA' => $dateA,'dateD' => $dateD];
         $query = $this->pdo->prepare($sql);

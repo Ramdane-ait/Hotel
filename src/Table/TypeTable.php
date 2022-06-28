@@ -21,4 +21,14 @@ class TypeTable extends Table {
 
     }
 
+    public function findCaract($idType){
+        $query = $this->pdo->prepare("
+        SELECT nom_caract FROM caract C
+        LEFT JOIN caract_type CT ON C.id = CT.id_caract
+        WHERE CT.id_type = ?;");
+        $query->execute([$idType]);
+        return $query->fetchAll();
+
+    }
+
 }

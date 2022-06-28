@@ -9,7 +9,7 @@ class Auth {
         if (session_status() === PHP_SESSION_NONE){
             session_start();
         }
-        if (!isset($_SESSION['auth'])){
+        if (!isset($_SESSION['auth']) &&!isset($_SESSION['client']) ){
             return false;
         }
         return true;

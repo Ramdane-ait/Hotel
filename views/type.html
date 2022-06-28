@@ -22,34 +22,20 @@
         <h2 class="car-title">caractéristique</h2>
         <div class="section-container">
             <div class="section1">
-                <div class="addons">
-                    <div class="cercle"></div>
-                    <p>Climatisation réglable dans la chambre</p>
-                </div>
-
-                <div class="addons">
-                    <div class="cercle"></div>
-                    <p>Plateau thé/café</p>
-                </div>
-                <div class="addons">
-                    <div class="cercle"></div>
-                    <p>Fer et planche à repasser (sur demande)</p>
-                </div>
-                
+                {% for i in 0..(caracts|length)/2-1  %}
+                    <div class="addons">
+                        <div class="cercle"></div>
+                        <p>{{caracts[i][0]}}</p>
+                    </div>
+                {% endfor %}
             </div>
             <div class="section2">
-                <div class="addons">
-                    <div class="cercle"></div>
-                    <p>Climatisation réglable dans la chambre</p>
-                </div> 
-                <div class="addons">
-                    <div class="cercle"></div>
-                    <p>Plateau thé/café</p>
-                </div>
-                <div class="addons">
-                    <div class="cercle"></div>
-                    <p>Fer et planche à repasser (sur demande)</p>
-                </div>
+                {% for i in (caracts|length)/2..caracts|length-1 %}
+                    <div class="addons">
+                        <div class="cercle"></div>
+                        <p >{{caracts[i][0]}}</p>
+                    </div>
+                 {% endfor %}
             </div>
         </div>
     </div>

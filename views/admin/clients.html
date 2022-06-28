@@ -1,0 +1,44 @@
+{% extends "layoutAdmin.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block links %}../static/listeC.css{% endblock  %}
+
+{% block content %}
+
+
+<div class="titre1">Listes des clients</div>
+<div class="container">
+    <table class="tab">
+
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>tel</th>
+                <th>email</th>
+                <th>adresse</th>
+
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td>{{client.getId}}</td>
+                <td>{{client.getNom}}</td>
+                <td>{{client.getPrenom}}</td>
+                <td>{{client.getTel}}</td>
+                <td>{{client.getEmail}}</td>
+                <td>{{client.getAdresse}}</td>    
+            </tr> 
+            {% endfor %}
+        <tbody>    
+    </table>
+</div>
+
+
+{% endblock  %}
+{% block footer %}{% endblock %}
+{% block js %}{% endblock  %}

@@ -10,6 +10,10 @@ use App\Validators\ContactValidator;
 if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
+$pseudo = '';
+if (isset($_SESSION['auth'])){
+    $pseudo = $_SESSION['auth']->getNom().','.$_SESSION['auth']->getPrenom(); 
+}
 
 if (Auth::check()) $email = $_SESSION['auth']->getEmail();
 if (!empty($_POST)){
@@ -35,6 +39,7 @@ $elements = [
     'connected' => isset($_SESSION['auth']),
     'admin' => isset($_SESSION['admin']),
     'email' => $email ?? '',
-    'succes' => isset($_GET['succes'])
+    'succes' => isset($_GET['succes']),
+    'pseudo' => $pseudo
 ];
 echo $twig->render($view,$elements);

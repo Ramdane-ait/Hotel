@@ -8,7 +8,11 @@ use App\Table\ChambreTable;
 use App\Table\ReservationTable;
 
 if (Auth::check()){
-   
+    $pseudo = '';
+    if (isset($_SESSION['auth'])){
+        $pseudo = $_SESSION['auth']->getNom().','.$_SESSION['auth']->getPrenom(); 
+    }
+
     $pdo = Connection::getPdo();
     $reservation = new Reservation();
     $rTable = new ReservationTable($pdo);
@@ -49,7 +53,8 @@ if (Auth::check()){
         'client' => $_SESSION['auth'],
         'prix' => $prix ,
         'connected' => isset($_SESSION['auth']),
-        'confirm' =>isset($_GET['confirm'])
+        'confirm' =>isset($_GET['confirm']),
+        'pseudo' => $pseudo
     ];
     echo $twig->render($view,$elements);
 } else {

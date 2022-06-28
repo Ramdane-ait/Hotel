@@ -30,7 +30,13 @@
                 <li><a href="{{router.url('accueil')}}#reservation"><button class="navbar-btn">Réserver</button> </a></li>
                 <li>
                   {% if connected %}
-                      <a href="{{router.url('deconnexion')}}"><button class="navbar-btn">Deconnexion</button> </a>
+                  <div class="dropdown">
+                    <button class="dropbtn">{{pseudo}} &#x25BC;</button>
+                    <div class="dropdown-content">
+                      <a href="{{router.url('client')}}">modifier profil</a>
+                      <a href="{{router.url('deconnexion')}}">deconnexion</a>
+                    </div>
+                  </div> 
                       {% else %}
                       <a href="{{router.url('connexion')}}"><button class="navbar-btn">Connexion</button> </a>
                   {% endif %}
@@ -53,7 +59,13 @@
          </ul>  
         <div class="btn">
           {% if connected %}
-            <a href="{{router.url('deconnexion')}}" class="btn1">Deconnexion</a>
+          <div class="dropdown">
+            <button class="dropbtn">{{pseudo}}</button>
+            <div class="dropdown-content">
+              <a href="{{router.url('client')}}">modifier profil</a>
+              <a href="{{router.url('deconnexion')}}">deconnexion</a>
+            </div>
+          </div> 
             {% else %}
               <a href="{{router.url('connexion')}}" class="btn1">Connexion</a>
           {% endif %} 

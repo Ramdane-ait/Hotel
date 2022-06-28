@@ -9,7 +9,11 @@ use App\Validators\ReservationValidator;
 
 
 if (Auth::check()){
-    
+    $pseudo = '';
+    if (isset($_SESSION['auth'])){
+        $pseudo = $_SESSION['auth']->getNom().','.$_SESSION['auth']->getPrenom(); 
+    }
+
    $errors = [];
     if (!empty($_POST)){
     
@@ -29,7 +33,7 @@ if (Auth::check()){
             }
 
 
-            echo $twig->render($view,['types' => $types,'images' => $images,'router' => $router,'connected' => isset($_SESSION['auth'])]);
+            echo $twig->render($view,['types' => $types,'images' => $images,'router' => $router,'connected' => isset($_SESSION['auth']),'pseudo' =>$pseudo]);
         } else {
             header('Location: ' . $router->url('accueil') . '?error=1');
             

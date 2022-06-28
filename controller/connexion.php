@@ -25,6 +25,7 @@ if (!empty($_POST)){
                     session_start();
                 }
                 $_SESSION['auth'] = $u;
+                $_SESSION['client'] = 1;
                 header('Location: ' . $router->url('accueil'));
                 exit();
             }

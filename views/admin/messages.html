@@ -1,0 +1,38 @@
+{% extends "layoutAdmin.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block links %}../static/listeM.css{% endblock  %}
+
+{% block content %}
+
+
+<div class="titre1">Listes des Messages</div>
+<div class="container">
+    <table class="tab">
+
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>email</th>
+                <th>Contenu</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{contact.getId}}</td>
+                <td>{{contact.getEmail}}</td>
+                <td class="message" ><p>{{contact.getMessage}}</p></td>
+                  
+            </tr> 
+            {% endfor %}
+        <tbody>    
+    </table>
+</div>
+
+
+{% endblock  %}
+{% block footer %}{% endblock %}
+{% block js %}{% endblock  %}

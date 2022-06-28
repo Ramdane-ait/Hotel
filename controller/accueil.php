@@ -6,11 +6,18 @@ if (session_status() === PHP_SESSION_NONE){
     session_start();
 }
 
+$pseudo = '';
+if (isset($_SESSION['auth'])){
+    $pseudo = $_SESSION['auth']->getNom().','.$_SESSION['auth']->getPrenom(); 
+}
+
+
 $pdo = Connection::getPdo();
 $chambreTable = new ChambreTable($pdo);
 $chambres = $chambreTable->all();
 
 $elements = [
+    'pseudo' => $pseudo,
     'router' => $router,
     'connected' => isset($_SESSION['auth']),
     'admin' => isset($_SESSION['admin']),

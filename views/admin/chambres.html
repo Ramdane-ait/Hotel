@@ -1,0 +1,50 @@
+{% extends "layoutAdmin.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block links %}../static/listeCh.css{% endblock  %}
+
+{% block content %}
+{% set url = router.url('admin_chambres') %}
+
+<div class="titre1">Listes des clients</div>
+<div class="container">
+    <table class="tab">
+
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Type</th>
+                <th>disponibilité</th>
+                
+
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for key,chambre in chambres %}
+            <tr>
+                <td>{{chambre.getId}}</td>
+                <td>{{types[key]}}</td>
+                <td>
+                    <form action="{{router.url('admin_chambres')}}" method="post" id="dispo">
+                        {% if chambre.getDispo %}
+                            <input type="checkbox" name="notDispo" value="{{chambre.getId}}" style="display:none;" checked>
+                            <button type="submit" class="btnDispo">disponible</button>
+                         {% else %}
+                            <input type="checkbox" name="dispo" value="{{chambre.getId}}" style="display:none;" checked>
+                            <button type="submit" class="btnNotDispo">Indisponible</button>
+                        {% endif %}
+                    </form>
+                </td>
+                   
+            </tr> 
+            {% endfor %}
+        <tbody>    
+    </table>
+</div>
+
+
+{% endblock  %}
+{% block footer %}{% endblock %}
+{% block js %}{% endblock  %}

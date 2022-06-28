@@ -5,28 +5,23 @@ use App\Connection;
 use App\Table\TypeTable;
 use App\Table\ImageTable;
 use App\Table\ChambreTable;
+use App\Table\ClientTable;
+use App\Table\ContactTable;
+use App\Table\ReservationTable;
 
 if (Auth::checkAdmin()){
     $pdo = Connection::getPdo();
     $chambreTable = new ChambreTable($pdo);
-    $imagesTable = new ImageTable($pdo);
-    $images = [];
-    $chambres = $chambreTable->all();
-    $typeTable = new TypeTable($pdo);
-    
-    $typeChambre = [];
-    foreach ($chambres as $chambre){
-        $typeChambre[$chambre->getId()] = $typeTable->findTypeName($chambre->getTypeId())[0];
-    }
-    
-    foreach ($chambres as $chambre){
-        $images[$chambre->getId()] = $imagesTable->findImages($chambre->getId());
-    }
+    $chambres = $chambreTable->count();
+    $reservations = (new ReservationTable($pdo))->count();
+    $messages = (new ContactTable($pdo))->count();
+    $clients = (new ClientTable($pdo))->count(); 
 
     $elements = [
-        'typeChambre' => $typeChambre,
+        'reservations' => $reservations,
         'chambres' => $chambres,
-        'images' => $images,
+        'messages' => $messages,
+        'clients' => $clients,
         'router' => $router,
         'connected' => isset($_SESSION['auth']) 
     ];

@@ -1,0 +1,43 @@
+{% extends "layoutAdmin.html" %}
+{% block navbar %}../static/{% endblock  %}
+{% block navbarJs %}../static/{% endblock  %}
+{% block links %}../static/listeR.css{% endblock  %}
+
+{% block content %}
+
+
+<div class="titre1">Listes des Reservations</div>
+<div class="container">
+    <table class="tab">
+
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>N°chambre</th>
+                <th>Client</th>
+                <th>debut</th>
+                <th>fin</th>
+                <th>prix</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for key,reservation in reservations %}
+            <tr>
+                <td>{{reservation.getId}}</td>
+                <td>{{reservation.getIdChambre}}</td>
+                <td>{{clients[key]}}</td>
+                <td>{{reservation.getDateArrivee}}</td>
+                <td>{{reservation.getDateDepart}}</td>
+                <td>{{reservation.getPrix}}</td>
+            </tr> 
+            {% endfor %}
+        <tbody>    
+    </table>
+</div>
+
+
+{% endblock  %}
+{% block footer %}{% endblock %}
+{% block js %}{% endblock  %}
